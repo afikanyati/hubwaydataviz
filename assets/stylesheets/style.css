@@ -1,0 +1,8 @@
+/* Stores all CSS variable */
+:root {
+    --dark-gray: #212323;
+}
+
+#mapid {
+    height: 500px;
+}
