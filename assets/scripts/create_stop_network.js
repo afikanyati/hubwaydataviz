@@ -1,20 +1,17 @@
 // Script 1
 
-d3.csv('assets/data/201711-hubway-tripdata.csv', function(error, data) {
-    console.log(data);
+d3.json('assets/data/2017_large.json', function(error, data) {
     var stations = {};
-    for (var i = 0; i< data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
         if (!(data[i]["start station name"] in stations)) {
             stations[data[i]["start station name"]] = {
                 name: data[i]["start station name"],
-                id: data[i]["start station id"],
                 lat: data[i]["start station latitude"],
                 long: data[i]["start station longitude"]
             };
         } else if (!(data[i]["end station name"] in stations)) {
             stations[data[i]["end station name"]] = {
                 name: data[i]["end station name"],
-                id: data[i]["end station id"],
                 lat: data[i]["end station latitude"],
                 long: data[i]["end station longitude"]
             };
@@ -22,27 +19,25 @@ d3.csv('assets/data/201711-hubway-tripdata.csv', function(error, data) {
     }
 
     var station_network = {};
-
     for (var station_A in stations) {
         let a = stations[station_A];
         station_network[station_A] = {};
         for (var station_B in stations) {
             let b = stations[station_B];
-            if (a.name == b.name) {
+            if (a.name != b.name) {
                 station_network[station_A][station_B] = {
-                    km: 0,
-                    mi: 0
-                };
-            } else {
-                station_network[station_A][station_B] = {
-                    km: distance(a.lat, a.long, b.lat, b.long, 'K'),
-                    mi: distance(a.lat, a.long, b.lat, b.long, 'M')
+                    meters: distance(a.lat, a.long, b.lat, b.long, 'K') * 1000,
+                    cumulativeTripTime: 0,
+                    tripCount: 0,
+                    avgSpeed: 0,
+                    popUpOpen: false,
+                    geoJSON: {}
                 };
             }
         }
     }
 
-    console.log(JSON.stringify(stations));
+    download(JSON.stringify(station_network), 'hubway_station_network.json', 'application/json');
 });
 
 // This routine calculates the distance between two points (given the
@@ -70,4 +65,12 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 	if (unit=="K") { dist = dist * 1.609344 }
 	if (unit=="N") { dist = dist * 0.8684 }
 	return dist
+}
+
+function download(content, fileName, contentType) {
+    var a = document.createElement("a");
+    var file = new Blob([content], {type: contentType});
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
 }

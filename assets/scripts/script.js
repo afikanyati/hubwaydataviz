@@ -10,7 +10,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 var hubwayIcon = L.icon({
     iconUrl: 'assets/images/hubway-logo.png',
     shadowUrl: 'assets/images/hubway-logo-shadow.png',
-
     iconSize:     [38, 38], // size of the icon
     shadowSize:   [38, 38], // size of the shadow
     iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
