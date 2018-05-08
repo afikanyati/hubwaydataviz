@@ -43,6 +43,7 @@ let colorScale;
 // Stores whether user has currently selected a station
 let stationSelected = false;
 
+// Load Data
 d3.queue()
     .defer(d3.json, "assets/data/stations.json")
     .defer(d3.json, "assets/data/hubway_station_network.json")
@@ -50,6 +51,8 @@ d3.queue()
     .await(buildVizFive);
 
 function buildVizFive(error, stationData, networkData, yearData) {
+    if (error) throw error;
+
     console.log("Getting Station Data...");
     // Cache data
     stations = stationData;
@@ -135,7 +138,7 @@ function buildVizFive(error, stationData, networkData, yearData) {
     //
     // // Set Color Scale
     // let scaleInc = (maxSpeed - minSpeed)/2;
-    // colorScale = d3.scaleLinear().domain([minSpeed - scaleInc, minSpeed, minSpeed + scaleInc, maxSpeed, maxSpeed + scaleInc]).range(["fdf5a6", "#f7dc6a", "#ef6945", "#b73227", "#b21e45"]);
+    // colorScale = d3.scaleLinear().domain([minSpeed - scaleInc, minSpeed, minSpeed + scaleInc, maxSpeed, maxSpeed + scaleInc]).range(["#fdf5a6", "#f7dc6a", "#ef6945", "#b73227", "#b21e45"]);
     //
     // // Calculate route distance
     // // Add routeJSON to routes network

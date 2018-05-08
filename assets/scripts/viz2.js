@@ -34,11 +34,14 @@ var hubwayIcon = L.icon({
 
 //USING D3: STATIONS.JSON WITH EVERY STATION AND ALL OF ITS INFO BUT NOW USE ONLY 2017 DATA SO NOT STATION.JSON
 
+// Load Data
 d3.queue()
   .defer(d3.json, "assets/data/2017.json")
   .await(buildVizTwo);
 
 function buildVizTwo (error, data) {
+    if (error) throw error;
+    
     for (var stationName in data) {
         var station = data[stationName];
         L.marker([station.lat, station.long], {icon: hubwayIcon}).addTo(viz2);

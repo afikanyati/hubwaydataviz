@@ -1,5 +1,5 @@
 // ====== Data Visualization I ======
-// 
+//
 // Where is Hubway?
 
 // Initialize Leaflet Map
@@ -14,7 +14,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(viz1);
 
 d3.json("assets/data/stations.json", function(error, data) {
-
+    if (error) throw error;
+    
     for (let name in data) {
         // Get station name
         var station = data[name];
