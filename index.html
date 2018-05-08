@@ -2,44 +2,195 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>How do Hubway Users Move?</title>
+        <title>How do Hubway Riders Move?</title>
         <link href="assets/stylesheets/style.css" rel="stylesheet"/>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
            integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
            crossorigin=""/>
     </head>
-    
     <body>
-<<<<<<< HEAD
-        <div id="viz5"></div>
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
-           integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
-           crossorigin=""></script>
-        <script src="assets/scripts/viz5.js"></script>
+        <header>
+            <video autoplay muted loop id="header-video">
+                <source src="assets/videos/hubway.mp4" type="video/mp4">
+            </video>
+            <div class="header-video-overlay"></div>
+            <div class="header-writing">
+                <h1>
+                    How do Hubway Riders Move?
+                </h1>
+                <p>by Samira Okudo, Kara Holinksi, &amp; Afika Nyati</p>
+            </div>
+            <img class="scroll-arrow bounce" src="assets/images/arrow-down.svg" />
+        </header>
+        <div class="main-content">
+            <div class="viz-container">
+                <h2 class="viz-heading">
+                    Where is Hubway?
+                </h2>
+                <div id="viz1"></div>
+                <p class="viz-explanation">
+                    A standard map-view of <span class="italic">locations</span> of all
+                    the Hubway bike stations distributed across the Greater Boston area.
+                </p>
+                <div class="instruction-block">
+                    <h3 class="instruction-heading bold">Instructions:</h3>
+                    <ol>
+                        <li>
+                            Drag the map to move about.
+                        </li>
+                        <li>
+                            Hover over station to reveal its name.
+                        </li>
+                    </ol>
+                </div>
+                <p class="data-source"><span class="bold">Data Source: </span>hubwaydatachallenge.org</p>
+            </div>
+            <div class="viz-container">
+                <h2 class="viz-heading">
+                    What are the most popolar Hubway stops?
+                </h2>
+                <div id="viz2"></div>
+                <p class="viz-explanation">
+                    The popolarity of a given Hubway station is determined by
+                    calcolating the number of <span class="italic">incoming trips</span> to
+                    and <span class="italic">outgoing trips</span> from it.
+                </p>
+                <div class="instruction-block">
+                    <h3 class="instruction-heading bold">Instructions:</h3>
+                    <ol>
+                        <li>
+                        </li>
+                    </ol>
+                </div>
+                <p class="data-source"><span class="bold">Data Source: </span>hubwaydatachallenge.org</p>
+            </div>
+            <div class="viz-container">
+                <h2 class="viz-heading">
+                    How do popolar stations relate to popolar trips?
+                </h2>
+                <div id="viz3"></div>
+                <p class="viz-explanation">
+                    Each <span class="italic">vertex</span> represents a Hubway bike station. An
+                    <span class="italic">edge</span> between two stations represents a trip between
+                    the stations. Popolar trips are determined by counting the frequency of
+                    a given start-end station pair.
+                </p>
+                <div class="instruction-block">
+                    <h3 class="instruction-heading bold">Instructions:</h3>
+                    <ol>
+                        <li>
+                        </li>
+                    </ol>
+                </div>
+                <p class="data-source"><span class="bold">Data Source: </span>hubwaydatachallenge.org</p>
+            </div>
+            <div class="viz-container">
+                <h2 class="viz-heading">
+                    When during the day is Hubway most popolar?
+                </h2>
+                <div id="viz4"></div>
+                <p class="viz-explanation">
+                    <span class="italic">Hour Popolarity</span> is determined by aggregating the
+                    number of Hubway trips within a given hour throughout the day.
+                </p>
+                <div class="instruction-block">
+                    <h3 class="instruction-heading bold">Instructions:</h3>
+                    <ol>
+                        <li>
+                        </li>
+                    </ol>
+                </div>
+                <p class="data-source"><span class="bold">Data Source: </span>hubwaydatachallenge.org</p>
+            </div>
+            <div class="viz-container">
+                <h2 class="viz-heading">
+                    Do Hubway riders move faster on specific routes?
+                </h2>
+                <div id="viz5"></div>
+                <p class="viz-explanation">
+                    <span class="italic">Average Route Speed</span> is estimated by obtaining the
+                    shortest path betwen a start-end station pair and dividing it by the average
+                    trip duration.
+                </p>
+                <div class="instruction-block">
+                    <h3 class="instruction-heading bold">Instructions:</h3>
+                    <ol>
+                        <li>
+                            Click a station to reveal all outgoing trips.
+                        </li>
+                        <li>
+                            Hover over route or rider to reveal ride information.
+                        </li>
+                    </ol>
+                </div>
+                <p class="data-source"><span class="bold">Data Source: </span>hubwaydatachallenge.org</p>
+            </div>
+            <div class="viz-container">
+                <h2 class="viz-heading">
+                    Is Hubway affected by seasonal weather?
+                </h2>
+                <div id="viz6"></div>
+                <p class="viz-explanation">
+                    <span class="italic">Monthly Popolarity</span> is determined by aggregating the
+                    number of Hubway trips within a month throughout the year.
+                </p>
+                <div class="instruction-block">
+                    <h3 class="instruction-heading bold">Instructions:</h3>
+                    <ol>
+                        <li>
+                        </li>
+                    </ol>
+                </div>
+                <p class="data-source"><span class="bold">Data Source: </span>hubwaydatachallenge.org</p>
+            </div>
+            <div class="viz-container">
+                <h2 class="viz-heading">
+                    Has Hubway popolarity increased over time?
+                </h2>
+                <div id="viz7"></div>
+                <p class="viz-explanation">
+                    <span class="italic">Bubble position</span> represents the aggregated number of Hubway
+                    trips in a given year, while <span class="italic">Bubble Size</span> is determined
+                    by the number of unique Hubway riders in a given year.
+                </p>
+                <div class="instruction-block">
+                    <h3 class="instruction-heading bold">Instructions:</h3>
+                    <ol>
+                        <li>
+                        </li>
+                    </ol>
+                </div>
+                <p class="data-source"><span class="bold">Data Source: </span>hubwaydatachallenge.org</p>
+            </div>
+        </div>
+        <script
+            src="https://d3js.org/d3.v4.min.js">
+        </script>
+        <script
+            src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+            integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+            crossorigin="">
+        </script>
+        <script
+            src="assets/scripts/viz1.js">
+        </script>
+        <script
+            src="assets/scripts/viz5.js">
+        </script>
+        <script
+            src="assets/scripts/viz3.js">
+        </script>
+        <script
+            src="assets/scripts/viz4.js">
+        </script>
+        <script
+            src="assets/scripts/viz2.js">
+        </script>
+        <script
+            src="assets/scripts/viz6.js">
+        </script>
+        <script
+            src="assets/scripts/viz7.js">
+        </script>
     </body>
-=======
-<!--        Samira's Div-->
-    <div class="container">
-    <div class="row">
-        <h1 class="col-md-12">What are the most popular Hubway stops?</h1>
-        <div id="mapid"></div>
-        </div>
-    
-    <br>
-    <div class="row">
-        <h1 class="col-md-12">Second Dashboard</h1>
-        <div id="mobile2">
-        </div>
-    </div>
-    </div>     
-</body>   
-    
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
-integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
-crossorigin=""></script>      
-<script src="assets/scripts/samirascript.js"></script>
-
->>>>>>> 9b425f18decf11c3c0d965befd09e34d592fd0a8
 </html>

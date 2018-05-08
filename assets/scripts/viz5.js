@@ -1,8 +1,9 @@
 // Data Visualization V
-// Do Hubway users move faster on specific routes?
+// Do Hubway riders move faster on specific routes?
+
 
 // Initialize Leaflet Map
-var viz5 = L.map('viz5').setView([42.3581, -71.093198], 15);
+let viz5 = L.map('viz5').setView([42.3581, -71.093198], 15);
 
 // Add Mapbox Light Tile Theme
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -13,7 +14,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(viz5);
 
 // geoJSON styling for trip routes
-var routeStyle = {
+let routeStyle = {
     "color": "",
     "weight": 5,
     "opacity": 0.3
@@ -42,130 +43,118 @@ let colorScale;
 // Stores whether user has currently selected a station
 let stationSelected = false;
 
-new Promise(function(resolve) {
+d3.queue()
+    .defer(d3.json, "assets/data/stations.json")
+    .defer(d3.json, "assets/data/hubway_station_network.json")
+    .defer(d3.json, "assets/data/2017.json")
+    .await(buildVizFive);
+
+function buildVizFive(error, stationData, networkData, yearData) {
+    console.log("Getting Station Data...");
+    // Cache data
+    stations = stationData;
+    stationNetwork = networkData;
+
     // Place Stations on Map
-    d3.json("assets/data/stations.json", function(error, data) {
-        console.log("Getting Station Data...");
-        // Cache data
-        stations = data;
+    for (let name in stationData) {
+        // Get station name
+        let station = stationData[name];
 
-        for (let name in data) {
-            // Get station name
-            var station = data[name];
+        // Place Station Marker on Map
+        L.circle([station.lat, station.long], {
+            color: '#289699',
+            fillColor: '#289699',
+            fillOpacity: 1,
+            radius: 15
+        }).bindPopup("<b>" + name + "</b>", {'autoClose': false})
+        .on('mouseover', function (e) {
+            if (!stationSelected) {
+                this.openPopup();
+                stationSelected = true;
+            }
+        })
+        .on('mouseout', function (e) {
+            if (geoJSONLayers.length == 0 && stationSelected) {
+                stationSelected = false;
+                this.closePopup();
+            }
+        })
+        .on('click', addStationRoutesToMap.bind({}, name))
+        .on('popupclose', function(e) {
+            if (geoJSONLayers.length > 0) {
+                clearGeoJSONLayers();
+                clearBikeMarkers();
+            }
+        })
+        .addTo(viz5);
+    }
 
-            // Place Station Marker on Map
-            L.circle([station.lat, station.long], {
-                color: '#289699',
-                fillColor: '#289699',
-                fillOpacity: 1,
-                radius: 15
-            }).bindPopup("<b>" + name + "</b>", {'autoClose': false})
-            .on('mouseover', function (e) {
-                if (!stationSelected) {
-                    this.openPopup();
-                    stationSelected = true;
-                }
-            })
-            .on('mouseout', function (e) {
-                if (geoJSONLayers.length == 0 && stationSelected) {
-                    stationSelected = false;
-                    this.closePopup();
-                }
-            })
-            .on('click', addStationRoutesToMap.bind({}, name))
-            .on('popupclose', function(e) {
-                if (geoJSONLayers.length > 0) {
-                    clearGeoJSONLayers();
-                    clearBikeMarkers();
-                }
-            })
-            .addTo(viz5);
-        }
-        return resolve();
-    });
-}).then(function() {
-    // Get station network data
-    return new Promise(function(resolve) {
-        console.log("Creating Station Network...");
-        d3.json("assets/data/hubway_station_network.json", function(error, data) {
-            stationNetwork = data;
-            return resolve();
-        });
-    });
-}).then(function() {
     // Calculate average speeds between two stops
     // Add trip routes to map
-    return new Promise(function(resolve) {
-        d3.json("assets/data/2017.json", function(error, data) {
-            // Sum Trip Durations
-            console.log("Summing Trip Durations...");
-            for (let i = 0; i < data.length; i++) {
-                let start = data[i]['start station name'];
-                let end = data[i]['end station name'];
+    // Sum Trip Durations
+    console.log("Summing Trip Durations...");
+    for (let i = 0; i < yearData.length; i++) {
+        let start = yearData[i]['start station name'];
+        let end = yearData[i]['end station name'];
 
-                if (start != end) {
-                    stationNetwork[start][end].cumulativeTripTime += +data[i]['tripduration'];
-                    stationNetwork[start][end].tripCount += 1;
-                    stationNetwork[end][start].cumulativeTripTime += +data[i]['tripduration'];
-                    stationNetwork[end][start].tripCount += 1;
-                }
-            }
+        if (start != end) {
+            stationNetwork[start][end].cumulativeTripTime += +yearData[i]['tripduration'];
+            stationNetwork[start][end].tripCount += 1;
+            stationNetwork[end][start].cumulativeTripTime += +yearData[i]['tripduration'];
+            stationNetwork[end][start].tripCount += 1;
+        }
+    }
 
-            // Add route to station network
-            for (let i = 0; i < data.length; i++) {
-                let start = data[i]['start station name'];
-                let end = data[i]['end station name'];
-
-                // Only calculate if a positive route
-                if (start != end && stationNetwork[start][end]['avgSpeed'] == 0) {
-                    // Get route
-                    let route = getTripRoute(stations[start].lat, stations[start].long, stations[end].lat, stations[end].long);
-
-                    let avgSpeed = stationNetwork[start][end]['meters']/(stationNetwork[start][end].cumulativeTripTime/stationNetwork[end][start].tripCount);
-                    stationNetwork[start][end]['avgSpeed'] == avgSpeed;
-                    // Check if lower than min speed
-                    if (avgSpeed < minSpeed) {
-                       minSpeed = avgSpeed;
-                    }
-
-                    // Check if higher than min speed
-                    if (avgSpeed > maxSpeed) {
-                       maxSpeed = avgSpeed;
-                    }
-
-                    // Place Route Promise in routePromise Array
-                    routePromises.push(route);
-                    routes.push({start: start, end: end});
-                }
-            }
-
-            // Set Color Scale
-            let scaleInc = (maxSpeed - minSpeed)/2;
-            colorScale = d3.scaleLinear().domain([minSpeed - scaleInc, minSpeed, minSpeed + scaleInc, maxSpeed, maxSpeed + scaleInc]).range(["fdf5a6", "#f7dc6a", "#ef6945", "#b73227", "#b21e45"]);
-
-            // Calculate route distance
-            // Add routeJSON to routes network
-            Promise.all(routePromises).then(function(promises) {
-                console.log("Adding Routes to Network...");
-                promises.forEach(function(route, i) {
-                    let distance = 0;
-                    for (let i = 0; i < route.geometry.coordinates.length - 1; i++) {
-                        let d = coordDistance(route.geometry.coordinates[i][0], route.geometry.coordinates[i][1], route.geometry.coordinates[i+1][0], route.geometry.coordinates[i+1][1]) * 1000;
-                        distance += d;
-                    }
-                    stationNetwork[routes[i]['start']][routes[i]['end']]['geoJSON'] = route.geometry;
-                    stationNetwork[routes[i]['start']][routes[i]['end']]['meters'] = distance;
-                });
-                download(JSON.stringify(stationNetwork), 'hubway_station_network_final.json', 'application/json');
-                return resolve();
-            });
-        });
-    });
-}).then(function() {
+    // Add route to station network
+    // for (let i = 0; i < yearData.length; i++) {
+    //     let start = yearData[i]['start station name'];
+    //     let end = yearData[i]['end station name'];
+    //
+    //     // Only calculate if a positive route
+    //     if (start != end && stationNetwork[start][end]['avgSpeed'] == 0) {
+    //         // Get route
+    //         let route = getTripRoute(stations[start].lat, stations[start].long, stations[end].lat, stations[end].long);
+    //
+    //         let avgSpeed = stationNetwork[start][end]['meters']/(stationNetwork[start][end].cumulativeTripTime/stationNetwork[end][start].tripCount);
+    //         stationNetwork[start][end]['avgSpeed'] == avgSpeed;
+    //         // Check if lower than min speed
+    //         if (avgSpeed < minSpeed) {
+    //            minSpeed = avgSpeed;
+    //         }
+    //
+    //         // Check if higher than min speed
+    //         if (avgSpeed > maxSpeed) {
+    //            maxSpeed = avgSpeed;
+    //         }
+    //
+    //         // Place Route Promise in routePromise Array
+    //         routePromises.push(route);
+    //         routes.push({start: start, end: end});
+    //     }
+    // }
+    //
+    // // Set Color Scale
+    // let scaleInc = (maxSpeed - minSpeed)/2;
+    // colorScale = d3.scaleLinear().domain([minSpeed - scaleInc, minSpeed, minSpeed + scaleInc, maxSpeed, maxSpeed + scaleInc]).range(["fdf5a6", "#f7dc6a", "#ef6945", "#b73227", "#b21e45"]);
+    //
+    // // Calculate route distance
+    // // Add routeJSON to routes network
+    // Promise.all(routePromises).then(function(promises) {
+    //     console.log("Adding Routes to Network...");
+    //     promises.forEach(function(route, i) {
+    //         let distance = 0;
+    //         for (let i = 0; i < route.geometry.coordinates.length - 1; i++) {
+    //             let d = coordDistance(route.geometry.coordinates[i][0], route.geometry.coordinates[i][1], route.geometry.coordinates[i+1][0], route.geometry.coordinates[i+1][1]) * 1000;
+    //             distance += d;
+    //         }
+    //         stationNetwork[routes[i]['start']][routes[i]['end']]['geoJSON'] = route.geometry;
+    //         stationNetwork[routes[i]['start']][routes[i]['end']]['meters'] = distance;
+    //     });
+    //     //download(JSON.stringify(stationNetwork), 'hubway_station_network_final.json', 'application/json');
+    //     return resolve();
+    // });
     console.log("Data Visualization Loaded!");
-});
-
-
+};
 
 // ===== Helper Functions =====
 
