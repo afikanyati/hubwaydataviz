@@ -1,0 +1,1422 @@
+{
+  "MIT at Mass Ave \/ Amherst St": {
+    "name": "MIT at Mass Ave \/ Amherst St",
+    "lat": "42.3581",
+    "long": "-71.093198"
+  },
+  "Boston Public Library - 700 Boylston St.": {
+    "name": "Boston Public Library - 700 Boylston St.",
+    "lat": "42.349673",
+    "long": "-71.077303"
+  },
+  "Agganis Arena - 925 Comm Ave.": {
+    "name": "Agganis Arena - 925 Comm Ave.",
+    "lat": "42.351246",
+    "long": "-71.115639"
+  },
+  "Christian Science Plaza": {
+    "name": "Christian Science Plaza",
+    "lat": "42.343864",
+    "long": "-71.085918"
+  },
+  "B.U. Central - 725 Comm. Ave.": {
+    "name": "B.U. Central - 725 Comm. Ave.",
+    "lat": "42.350406",
+    "long": "-71.108279"
+  },
+  "Cross St. at Hanover St.": {
+    "name": "Cross St. at Hanover St.",
+    "lat": "42.362811",
+    "long": "-71.056067"
+  },
+  "MIT Vassar St": {
+    "name": "MIT Vassar St",
+    "lat": "42.355601213279265",
+    "long": "-71.10394477844238"
+  },
+  "Ames St at Main St": {
+    "name": "Ames St at Main St",
+    "lat": "42.3625",
+    "long": "-71.08822"
+  },
+  "The Esplanade - Beacon St. at Arlington St.": {
+    "name": "The Esplanade - Beacon St. at Arlington St.",
+    "lat": "42.355596",
+    "long": "-71.07278"
+  },
+  "Harvard Real Estate - Brighton Mills - 370 Western Ave": {
+    "name": "Harvard Real Estate - Brighton Mills - 370 Western Ave",
+    "lat": "42.361667",
+    "long": "-71.13802"
+  },
+  "Inman Square at Vellucci Plaza \/ Hampshire St": {
+    "name": "Inman Square at Vellucci Plaza \/ Hampshire St",
+    "lat": "42.374035",
+    "long": "-71.101427"
+  },
+  "Harvard Law School at Mass Ave \/ Jarvis St": {
+    "name": "Harvard Law School at Mass Ave \/ Jarvis St",
+    "lat": "42.379011",
+    "long": "-71.119945"
+  },
+  "Green St T": {
+    "name": "Green St T",
+    "lat": "42.310579",
+    "long": "-71.107341"
+  },
+  "Roxbury Crossing Station": {
+    "name": "Roxbury Crossing Station",
+    "lat": "42.331184",
+    "long": "-71.095171"
+  },
+  "MIT Stata Center at Vassar St \/ Main St": {
+    "name": "MIT Stata Center at Vassar St \/ Main St",
+    "lat": "42.3619622",
+    "long": "-71.0920526"
+  },
+  "South Station - 700 Atlantic Ave.": {
+    "name": "South Station - 700 Atlantic Ave.",
+    "lat": "42.352175",
+    "long": "-71.055547"
+  },
+  "Washington St. at Rutland St.": {
+    "name": "Washington St. at Rutland St.",
+    "lat": "42.33849279283789",
+    "long": "-71.07401937246323"
+  },
+  "MIT Pacific St at Purrington St": {
+    "name": "MIT Pacific St at Purrington St",
+    "lat": "42.35957320109044",
+    "long": "-71.10129475593567"
+  },
+  "Back Bay \/ South End Station": {
+    "name": "Back Bay \/ South End Station",
+    "lat": "42.34807412317439",
+    "long": "-71.07657015323639"
+  },
+  "Boylston St. at Arlington St.": {
+    "name": "Boylston St. at Arlington St.",
+    "lat": "42.35255006465652",
+    "long": "-71.06782078742981"
+  },
+  "Tremont St. at Berkeley St.": {
+    "name": "Tremont St. at Berkeley St.",
+    "lat": "42.345392",
+    "long": "-71.069616"
+  },
+  "Porter Square Station": {
+    "name": "Porter Square Station",
+    "lat": "42.387995",
+    "long": "-71.119084"
+  },
+  "West Broadway at D Street": {
+    "name": "West Broadway at D Street",
+    "lat": "42.3391085",
+    "long": "-71.0514432"
+  },
+  "Cambridge St. at Joy St.": {
+    "name": "Cambridge St. at Joy St.",
+    "lat": "42.361174",
+    "long": "-71.065142"
+  },
+  "Powder House Circle - Nathan Tufts Park": {
+    "name": "Powder House Circle - Nathan Tufts Park",
+    "lat": "42.400877",
+    "long": "-71.116772"
+  },
+  "Kenmore Sq \/ Comm Ave": {
+    "name": "Kenmore Sq \/ Comm Ave",
+    "lat": "42.348706",
+    "long": "-71.097009"
+  },
+  "CambridgeSide Galleria - CambridgeSide PL at Land Blvd": {
+    "name": "CambridgeSide Galleria - CambridgeSide PL at Land Blvd",
+    "lat": "42.366981",
+    "long": "-71.076472"
+  },
+  "Tremont St \/ W Newton St": {
+    "name": "Tremont St \/ W Newton St",
+    "lat": "42.341332",
+    "long": "-71.076847"
+  },
+  "Jackson Square T at Centre St": {
+    "name": "Jackson Square T at Centre St",
+    "lat": "42.32285835413575",
+    "long": "-71.10034391283989"
+  },
+  "Ink Block": {
+    "name": "Ink Block",
+    "lat": "42.345901",
+    "long": "-71.063187"
+  },
+  "Mayor Martin J Walsh - 28 State St": {
+    "name": "Mayor Martin J Walsh - 28 State St",
+    "lat": "42.35892",
+    "long": "-71.057629"
+  },
+  "Washington St. at Lenox St.": {
+    "name": "Washington St. at Lenox St.",
+    "lat": "42.3348756",
+    "long": "-71.0790969"
+  },
+  "Prudential Center \/ Belvidere": {
+    "name": "Prudential Center \/ Belvidere",
+    "lat": "42.345959",
+    "long": "-71.082578"
+  },
+  "Day Boulevard": {
+    "name": "Day Boulevard",
+    "lat": "42.336448",
+    "long": "-71.023739"
+  },
+  "Landmark Centre": {
+    "name": "Landmark Centre",
+    "lat": "42.343912",
+    "long": "-71.102221"
+  },
+  "Charlestown - Main St at Austin St": {
+    "name": "Charlestown - Main St at Austin St",
+    "lat": "42.375603",
+    "long": "-71.064608"
+  },
+  "Stuart St. at Charles St.": {
+    "name": "Stuart St. at Charles St.",
+    "lat": "42.351146",
+    "long": "-71.066289"
+  },
+  "Tremont St \/ West St": {
+    "name": "Tremont St \/ West St",
+    "lat": "42.354979",
+    "long": "-71.063348"
+  },
+  "Brigham Cir \/ Huntington Ave": {
+    "name": "Brigham Cir \/ Huntington Ave",
+    "lat": "42.334073",
+    "long": "-71.105221"
+  },
+  "Linear Park - Mass. Ave. at Cameron Ave. ": {
+    "name": "Linear Park - Mass. Ave. at Cameron Ave. ",
+    "lat": "42.397828",
+    "long": "-71.130516"
+  },
+  "Central Square at Mass Ave \/ Essex St": {
+    "name": "Central Square at Mass Ave \/ Essex St",
+    "lat": "42.36507",
+    "long": "-71.1031"
+  },
+  "Cambridge Main Library at Broadway \/ Trowbridge St": {
+    "name": "Cambridge Main Library at Broadway \/ Trowbridge St",
+    "lat": "42.373379",
+    "long": "-71.111075"
+  },
+  "Nashua Street at Red Auerbach Way": {
+    "name": "Nashua Street at Red Auerbach Way",
+    "lat": "42.36559770612416",
+    "long": "-71.06424808502197"
+  },
+  "Union Square - Brighton Ave. at Cambridge St.": {
+    "name": "Union Square - Brighton Ave. at Cambridge St.",
+    "lat": "42.353334",
+    "long": "-71.137313"
+  },
+  "Packard's Corner - Comm. Ave. at Brighton Ave.": {
+    "name": "Packard's Corner - Comm. Ave. at Brighton Ave.",
+    "lat": "42.352261",
+    "long": "-71.123831"
+  },
+  "Harvard University River Houses at DeWolfe St \/ Cowperthwaite St": {
+    "name": "Harvard University River Houses at DeWolfe St \/ Cowperthwaite St",
+    "lat": "42.36919031768079",
+    "long": "-71.11714124679565"
+  },
+  "Harvard University Gund Hall at Quincy St \/ Kirkland S": {
+    "name": "Harvard University Gund Hall at Quincy St \/ Kirkland S",
+    "lat": "42.376369",
+    "long": "-71.114025"
+  },
+  "MLK Blvd at Washington St": {
+    "name": "MLK Blvd at Washington St",
+    "lat": "42.321678",
+    "long": "-71.091822"
+  },
+  "JFK \/ UMASS at MBTA Station": {
+    "name": "JFK \/ UMASS at MBTA Station",
+    "lat": "42.320494",
+    "long": "-71.051122"
+  },
+  "Somerville City Hall": {
+    "name": "Somerville City Hall",
+    "lat": "42.386844",
+    "long": "-71.09812"
+  },
+  "Rindge Avenue - O'Neill Library": {
+    "name": "Rindge Avenue - O'Neill Library",
+    "lat": "42.392766",
+    "long": "-71.129042"
+  },
+  "Buswell St. at Park Dr.": {
+    "name": "Buswell St. at Park Dr.",
+    "lat": "42.347241",
+    "long": "-71.105301"
+  },
+  "Edwards Playground - Main Street & Eden Street": {
+    "name": "Edwards Playground - Main Street & Eden Street",
+    "lat": "42.378965",
+    "long": "-71.068607"
+  },
+  "Lower Cambridgeport at Magazine St\/Riverside Rd": {
+    "name": "Lower Cambridgeport at Magazine St\/Riverside Rd",
+    "lat": "42.356954",
+    "long": "-71.113687"
+  },
+  "University Park": {
+    "name": "University Park",
+    "lat": "42.36264779118595",
+    "long": "-71.10006093978882"
+  },
+  "Mt Auburn": {
+    "name": "Mt Auburn",
+    "lat": "42.37478628706384",
+    "long": "-71.13320231437683"
+  },
+  "Davis Square": {
+    "name": "Davis Square",
+    "lat": "42.396969",
+    "long": "-71.123024"
+  },
+  "Harvard University Housing - 115 Putnam Ave at Peabody Terrace": {
+    "name": "Harvard University Housing - 115 Putnam Ave at Peabody Terrace",
+    "lat": "42.366621",
+    "long": "-71.114214"
+  },
+  "Harvard University \/ SEAS Cruft-Pierce Halls at 29 Oxford St": {
+    "name": "Harvard University \/ SEAS Cruft-Pierce Halls at 29 Oxford St",
+    "lat": "42.377945",
+    "long": "-71.116865"
+  },
+  "Third at Binney": {
+    "name": "Third at Binney",
+    "lat": "42.36544486137399",
+    "long": "-71.08277142047882"
+  },
+  "South Boston Library - 646 East Broadway": {
+    "name": "South Boston Library - 646 East Broadway",
+    "lat": "42.335741",
+    "long": "-71.03877"
+  },
+  "Chinatown Gate Plaza - Surface Rd. at Beach St.": {
+    "name": "Chinatown Gate Plaza - Surface Rd. at Beach St.",
+    "lat": "42.351356",
+    "long": "-71.059367"
+  },
+  "Columbus Ave. at Mass. Ave.": {
+    "name": "Columbus Ave. at Mass. Ave.",
+    "lat": "42.340799",
+    "long": "-71.081572"
+  },
+  "Harvard Square at Brattle St \/ Eliot St": {
+    "name": "Harvard Square at Brattle St \/ Eliot St",
+    "lat": "42.373231",
+    "long": "-71.120886"
+  },
+  "Harvard Square at Mass Ave\/ Dunster": {
+    "name": "Harvard Square at Mass Ave\/ Dunster",
+    "lat": "42.373268",
+    "long": "-71.118579"
+  },
+  "The Eddy at New Street": {
+    "name": "The Eddy at New Street",
+    "lat": "42.37078454600501",
+    "long": "-71.04426160454749"
+  },
+  "Boylston St \/ Washington St": {
+    "name": "Boylston St \/ Washington St",
+    "lat": "42.352409",
+    "long": "-71.062679"
+  },
+  "Longwood Ave \/ Binney St": {
+    "name": "Longwood Ave \/ Binney St",
+    "lat": "42.338629",
+    "long": "-71.1065"
+  },
+  "EBNHC - 20 Maverick Sq": {
+    "name": "EBNHC - 20 Maverick Sq",
+    "lat": "42.369562869377",
+    "long": "-71.03942692279814"
+  },
+  "Lawn on D": {
+    "name": "Lawn on D",
+    "lat": "42.344792",
+    "long": "-71.044024"
+  },
+  "Lafayette Square at Mass Ave \/ Main St \/ Columbia St": {
+    "name": "Lafayette Square at Mass Ave \/ Main St \/ Columbia St",
+    "lat": "42.36346469304347",
+    "long": "-71.10057324171066"
+  },
+  "Charlestown - Warren St at Chelsea St": {
+    "name": "Charlestown - Warren St at Chelsea St",
+    "lat": "42.371848",
+    "long": "-71.060292"
+  },
+  "HMS \/ HSPH - Ave. Louis Pasteur at Longwood Ave.": {
+    "name": "HMS \/ HSPH - Ave. Louis Pasteur at Longwood Ave.",
+    "lat": "42.337171",
+    "long": "-71.102797"
+  },
+  "Brian P. Murphy Staircase at Child Street": {
+    "name": "Brian P. Murphy Staircase at Child Street",
+    "lat": "42.3720597013741",
+    "long": "-71.07202649116516"
+  },
+  "Harvard University Radcliffe Quadrangle at Shepard St \/ Garden St": {
+    "name": "Harvard University Radcliffe Quadrangle at Shepard St \/ Garden St",
+    "lat": "42.380287",
+    "long": "-71.125107"
+  },
+  "Union Square - Somerville": {
+    "name": "Union Square - Somerville",
+    "lat": "42.379637",
+    "long": "-71.095319"
+  },
+  "Lesley University": {
+    "name": "Lesley University",
+    "lat": "42.38674802045056",
+    "long": "-71.11901879310608"
+  },
+  "Sidney Research Campus\/ Erie Street at Waverly": {
+    "name": "Sidney Research Campus\/ Erie Street at Waverly",
+    "lat": "42.35775309465199",
+    "long": "-71.10393404960632"
+  },
+  "Central Sq Post Office \/ Cambridge City Hall at Mass Ave \/ Pleasant St": {
+    "name": "Central Sq Post Office \/ Cambridge City Hall at Mass Ave \/ Pleasant St",
+    "lat": "42.366426",
+    "long": "-71.105495"
+  },
+  "Cambridge St - at Columbia St \/ Webster Ave": {
+    "name": "Cambridge St - at Columbia St \/ Webster Ave",
+    "lat": "42.372969",
+    "long": "-71.094445"
+  },
+  "Rowes Wharf - Atlantic Ave": {
+    "name": "Rowes Wharf - Atlantic Ave",
+    "lat": "42.357143",
+    "long": "-71.050699"
+  },
+  "Kendall T": {
+    "name": "Kendall T",
+    "lat": "42.362427842912396",
+    "long": "-71.08495473861694"
+  },
+  "New Balance - 20 Guest St.": {
+    "name": "New Balance - 20 Guest St.",
+    "lat": "42.357402",
+    "long": "-71.147782"
+  },
+  "One Kendall Square at Hampshire St \/ Portland St": {
+    "name": "One Kendall Square at Hampshire St \/ Portland St",
+    "lat": "42.366277",
+    "long": "-71.09169"
+  },
+  "Kendall Street": {
+    "name": "Kendall Street",
+    "lat": "42.363560158429884",
+    "long": "-71.08216792345047"
+  },
+  "Alewife MBTA at Steel Place": {
+    "name": "Alewife MBTA at Steel Place",
+    "lat": "42.395588457167094",
+    "long": "-71.14260613918304"
+  },
+  "359 Broadway - Broadway at Fayette Street": {
+    "name": "359 Broadway - Broadway at Fayette Street",
+    "lat": "42.370803",
+    "long": "-71.104412"
+  },
+  "Curtis Hall at South Street": {
+    "name": "Curtis Hall at South Street",
+    "lat": "42.309054",
+    "long": "-71.11543"
+  },
+  "Heath St at South Huntington": {
+    "name": "Heath St at South Huntington",
+    "lat": "42.32797270205962",
+    "long": "-71.11089706420898"
+  },
+  "Harvard Kennedy School at Bennett St \/ Eliot St": {
+    "name": "Harvard Kennedy School at Bennett St \/ Eliot St",
+    "lat": "42.37199165408676",
+    "long": "-71.12226963043213"
+  },
+  "Colleges of the Fenway": {
+    "name": "Colleges of the Fenway",
+    "lat": "42.340021",
+    "long": "-71.100812"
+  },
+  "Fan Pier": {
+    "name": "Fan Pier",
+    "lat": "42.35328743453294",
+    "long": "-71.04438900947571"
+  },
+  "State Street at Channel Center": {
+    "name": "State Street at Channel Center",
+    "lat": "42.344137",
+    "long": "-71.052608"
+  },
+  "Savin Hill MBTA Station": {
+    "name": "Savin Hill MBTA Station",
+    "lat": "42.310599",
+    "long": "-71.053927"
+  },
+  "John F Fitzgerald - Surface Road at India Street": {
+    "name": "John F Fitzgerald - Surface Road at India Street",
+    "lat": "42.358155",
+    "long": "-71.052163"
+  },
+  "Spaulding Rehabilitation Hospital - Charlestown Navy Yard": {
+    "name": "Spaulding Rehabilitation Hospital - Charlestown Navy Yard",
+    "lat": "42.378338",
+    "long": "-71.048927"
+  },
+  "Northeastern U \/ North Parking Lot": {
+    "name": "Northeastern U \/ North Parking Lot",
+    "lat": "42.341814",
+    "long": "-71.090179"
+  },
+  "Dana Park": {
+    "name": "Dana Park",
+    "lat": "42.361780439606044",
+    "long": "-71.10809952020645"
+  },
+  "Faneuil Hall - Union St. at North St.": {
+    "name": "Faneuil Hall - Union St. at North St.",
+    "lat": "42.360613",
+    "long": "-71.057452"
+  },
+  "Watermark Seaport": {
+    "name": "Watermark Seaport",
+    "lat": "42.351543104723206",
+    "long": "-71.04573011398315"
+  },
+  "Harvard University Housing - 111 Western Ave. at Soldiers Field Park ": {
+    "name": "Harvard University Housing - 111 Western Ave. at Soldiers Field Park ",
+    "lat": "42.365064",
+    "long": "-71.119233"
+  },
+  "Seaport Hotel": {
+    "name": "Seaport Hotel",
+    "lat": "42.348833",
+    "long": "-71.041747"
+  },
+  "Seaport Square - Seaport Blvd. at Boston Wharf": {
+    "name": "Seaport Square - Seaport Blvd. at Boston Wharf",
+    "lat": "42.351205",
+    "long": "-71.043983"
+  },
+  "Aquarium Station - 200 Atlantic Ave.": {
+    "name": "Aquarium Station - 200 Atlantic Ave.",
+    "lat": "42.35977",
+    "long": "-71.051601"
+  },
+  "Conway Park - Somerville Avenue": {
+    "name": "Conway Park - Somerville Avenue",
+    "lat": "42.383405",
+    "long": "-71.107593"
+  },
+  "Upham's Corner - Columbia Rd": {
+    "name": "Upham's Corner - Columbia Rd",
+    "lat": "42.31756858003556",
+    "long": "-71.06403708501603"
+  },
+  "Dudley Square": {
+    "name": "Dudley Square",
+    "lat": "42.328654",
+    "long": "-71.084198"
+  },
+  "Washington St at Brock St": {
+    "name": "Washington St at Brock St",
+    "lat": "42.34900494405213",
+    "long": "-71.1604106426239"
+  },
+  "Ruggles Station \/ Columbus Ave.": {
+    "name": "Ruggles Station \/ Columbus Ave.",
+    "lat": "42.335911",
+    "long": "-71.088496"
+  },
+  "Alewife Station at Russell Field": {
+    "name": "Alewife Station at Russell Field",
+    "lat": "42.396105",
+    "long": "-71.139459"
+  },
+  "Washington St at Melnea Cass Blvd": {
+    "name": "Washington St at Melnea Cass Blvd",
+    "lat": "42.33282815812448",
+    "long": "-71.08126938343048"
+  },
+  "Lewis Wharf - Atlantic Ave.": {
+    "name": "Lewis Wharf - Atlantic Ave.",
+    "lat": "42.363871",
+    "long": "-71.050877"
+  },
+  "Brighton Center": {
+    "name": "Brighton Center",
+    "lat": "42.34894857235593",
+    "long": "-71.15027189254761"
+  },
+  "TD Garden - West End Park": {
+    "name": "TD Garden - West End Park",
+    "lat": "42.36588481543564",
+    "long": "-71.06454849243164"
+  },
+  "Wentworth Institute of Technology": {
+    "name": "Wentworth Institute of Technology",
+    "lat": "42.337596",
+    "long": "-71.096391"
+  },
+  "Dorchester Ave. at Gillette Park": {
+    "name": "Dorchester Ave. at Gillette Park",
+    "lat": "42.344023",
+    "long": "-71.057054"
+  },
+  "Lechmere Station at Cambridge St \/ First St": {
+    "name": "Lechmere Station at Cambridge St \/ First St",
+    "lat": "42.370677",
+    "long": "-71.076529"
+  },
+  "Harvard University Transportation Services - 175 North Harvard St": {
+    "name": "Harvard University Transportation Services - 175 North Harvard St",
+    "lat": "42.363796",
+    "long": "-71.129164"
+  },
+  "EF - North Point Park": {
+    "name": "EF - North Point Park",
+    "lat": "42.369885",
+    "long": "-71.069957"
+  },
+  "Magoun Square at Trum Field": {
+    "name": "Magoun Square at Trum Field",
+    "lat": "42.398365",
+    "long": "-71.107818"
+  },
+  "One Broadway \/ Kendall Sq at Main St \/ 3rd St": {
+    "name": "One Broadway \/ Kendall Sq at Main St \/ 3rd St",
+    "lat": "42.362613",
+    "long": "-71.084105"
+  },
+  "Binney St \/ Sixth St": {
+    "name": "Binney St \/ Sixth St",
+    "lat": "42.366095",
+    "long": "-71.086388"
+  },
+  "West Broadway at Dorchester St": {
+    "name": "West Broadway at Dorchester St",
+    "lat": "42.335693",
+    "long": "-71.045859"
+  },
+  "Danehy Park": {
+    "name": "Danehy Park",
+    "lat": "42.388966",
+    "long": "-71.132788"
+  },
+  "ID Building West": {
+    "name": "ID Building West",
+    "lat": "42.344796",
+    "long": "-71.031614"
+  },
+  "Innovation Lab - 125 Western Ave. at Batten Way": {
+    "name": "Innovation Lab - 125 Western Ave. at Batten Way",
+    "lat": "42.363732",
+    "long": "-71.124565"
+  },
+  "Oak Square YMCA": {
+    "name": "Oak Square YMCA",
+    "lat": "42.35048161669747",
+    "long": "-71.16636693499458"
+  },
+  "Congress St and Northern Ave": {
+    "name": "Congress St and Northern Ave",
+    "lat": "42.3482032222746",
+    "long": "-71.0376513004303"
+  },
+  "Boston Convention & Exhibition Center": {
+    "name": "Boston Convention & Exhibition Center",
+    "lat": "42.3475",
+    "long": "-71.0441"
+  },
+  "UMass Boston Integrated Sciences Complex": {
+    "name": "UMass Boston Integrated Sciences Complex",
+    "lat": "42.3139036",
+    "long": "-71.0405121"
+  },
+  "Orient Heights T Stop - Bennington St at Saratoga St": {
+    "name": "Orient Heights T Stop - Bennington St at Saratoga St",
+    "lat": "42.38673178529929",
+    "long": "-71.00621223455164"
+  },
+  "Maverick Sq - Lewis Mall": {
+    "name": "Maverick Sq - Lewis Mall",
+    "lat": "42.368838571365195",
+    "long": "-71.03976666949166"
+  },
+  "Egleston Square at Columbus Ave": {
+    "name": "Egleston Square at Columbus Ave",
+    "lat": "42.315692",
+    "long": "-71.098634"
+  },
+  "Mass Ave at Newmarket Square": {
+    "name": "Mass Ave at Newmarket Square",
+    "lat": "42.326599",
+    "long": "-71.066498"
+  },
+  "Franklin Park Zoo": {
+    "name": "Franklin Park Zoo",
+    "lat": "42.303469",
+    "long": "-71.085347"
+  },
+  "Bennington St at Byron St": {
+    "name": "Bennington St at Byron St",
+    "lat": "42.38337841883669",
+    "long": "-71.01612031481636"
+  },
+  "ID Building East": {
+    "name": "ID Building East",
+    "lat": "42.344827",
+    "long": "-71.028664"
+  },
+  "Bunker Hill Community College": {
+    "name": "Bunker Hill Community College",
+    "lat": "42.37408991426522",
+    "long": "-71.06905996799469"
+  },
+  "Walnut Ave at Crawford St": {
+    "name": "Walnut Ave at Crawford St",
+    "lat": "42.316873",
+    "long": "-71.091955"
+  },
+  "Central Square East Boston - Porter Street at London Street": {
+    "name": "Central Square East Boston - Porter Street at London Street",
+    "lat": "42.374301316178226",
+    "long": "-71.03808671246952"
+  },
+  "Market St at Faneuil St": {
+    "name": "Market St at Faneuil St",
+    "lat": "42.35480179069945",
+    "long": "-71.15025043487549"
+  },
+  "Bowdoin St at Quincy St": {
+    "name": "Bowdoin St at Quincy St",
+    "lat": "42.30791912678712",
+    "long": "-71.06502056121826"
+  },
+  "Roxbury YMCA": {
+    "name": "Roxbury YMCA",
+    "lat": "42.317963",
+    "long": "-71.082254"
+  },
+  "18 Dorrance Warehouse": {
+    "name": "18 Dorrance Warehouse",
+    "lat": "42.387151",
+    "long": "-71.075978"
+  },
+  "8D OPS 03": {
+    "name": "8D OPS 03",
+    "lat": "45.505086",
+    "long": "-73.566921"
+  },
+  "Surface Rd at India St": {
+    "name": "Surface Rd at India St",
+    "lat": "42.358155",
+    "long": "-71.052163"
+  },
+  "Chinatown Gate Plaza": {
+    "name": "Chinatown Gate Plaza",
+    "lat": "42.351356",
+    "long": "-71.059367"
+  },
+  "Copley Square - Dartmouth St at Boylston St": {
+    "name": "Copley Square - Dartmouth St at Boylston St",
+    "lat": "42.349673",
+    "long": "-71.077303"
+  },
+  "Congress St at North St": {
+    "name": "Congress St at North St",
+    "lat": "42.360613",
+    "long": "-71.057452"
+  },
+  "South Station - 700 Atlantic Ave": {
+    "name": "South Station - 700 Atlantic Ave",
+    "lat": "42.352175",
+    "long": "-71.055547"
+  },
+  "Rowes Wharf at Atlantic Ave": {
+    "name": "Rowes Wharf at Atlantic Ave",
+    "lat": "42.357143",
+    "long": "-71.050699"
+  },
+  "Park Dr at Buswell St": {
+    "name": "Park Dr at Buswell St",
+    "lat": "42.347241",
+    "long": "-71.105301"
+  },
+  "Landmark Center - Brookline Ave at Park Dr": {
+    "name": "Landmark Center - Brookline Ave at Park Dr",
+    "lat": "42.343912",
+    "long": "-71.102221"
+  },
+  "Christian Science Plaza - Massachusetts Ave at Westland Ave": {
+    "name": "Christian Science Plaza - Massachusetts Ave at Westland Ave",
+    "lat": "42.343864",
+    "long": "-71.085918"
+  },
+  "Prudential Center - Belvedere St": {
+    "name": "Prudential Center - Belvedere St",
+    "lat": "42.345959",
+    "long": "-71.082578"
+  },
+  "Beacon St at Arlington St": {
+    "name": "Beacon St at Arlington St",
+    "lat": "42.355596",
+    "long": "-71.07278"
+  },
+  "Back Bay T Stop - Dartmouth St at Stuart St": {
+    "name": "Back Bay T Stop - Dartmouth St at Stuart St",
+    "lat": "42.34807412317439",
+    "long": "-71.07657015323639"
+  },
+  "Innovation Lab - 125 Western Ave at Batten Way": {
+    "name": "Innovation Lab - 125 Western Ave at Batten Way",
+    "lat": "42.363732",
+    "long": "-71.124565"
+  },
+  "175 N Harvard St": {
+    "name": "175 N Harvard St",
+    "lat": "42.363796",
+    "long": "-71.129164"
+  },
+  "Packard's Corner - Commonwealth Ave at Brighton Ave": {
+    "name": "Packard's Corner - Commonwealth Ave at Brighton Ave",
+    "lat": "42.352261",
+    "long": "-71.123831"
+  },
+  "New Balance - 20 Guest St": {
+    "name": "New Balance - 20 Guest St",
+    "lat": "42.357402",
+    "long": "-71.147782"
+  },
+  "Main St at Austin St": {
+    "name": "Main St at Austin St",
+    "lat": "42.375603",
+    "long": "-71.064608"
+  },
+  "Warren St at Chelsea St": {
+    "name": "Warren St at Chelsea St",
+    "lat": "42.371848",
+    "long": "-71.060292"
+  },
+  "Cross St at Hanover St": {
+    "name": "Cross St at Hanover St",
+    "lat": "42.362811",
+    "long": "-71.056067"
+  },
+  "Edwards Playground - Main St at Eden St": {
+    "name": "Edwards Playground - Main St at Eden St",
+    "lat": "42.378965",
+    "long": "-71.068607"
+  },
+  "Stuart St at Charles St": {
+    "name": "Stuart St at Charles St",
+    "lat": "42.351146",
+    "long": "-71.066289"
+  },
+  "Tremont St at E Berkeley St": {
+    "name": "Tremont St at E Berkeley St",
+    "lat": "42.345392",
+    "long": "-71.069616"
+  },
+  "Seaport Square - Seaport Blvd at Northern Ave": {
+    "name": "Seaport Square - Seaport Blvd at Northern Ave",
+    "lat": "42.351205",
+    "long": "-71.043983"
+  },
+  "Ink Block - Harrison Ave at Herald St": {
+    "name": "Ink Block - Harrison Ave at Herald St",
+    "lat": "42.345901",
+    "long": "-71.063187"
+  },
+  "W Broadway at D St": {
+    "name": "W Broadway at D St",
+    "lat": "42.3391085",
+    "long": "-71.0514432"
+  },
+  "Ruggles T Stop - Columbus Ave at Melnea Cass Blvd": {
+    "name": "Ruggles T Stop - Columbus Ave at Melnea Cass Blvd",
+    "lat": "42.335911",
+    "long": "-71.088496"
+  },
+  "Green Street T Stop - Green St at Amory St": {
+    "name": "Green Street T Stop - Green St at Amory St",
+    "lat": "42.310579",
+    "long": "-71.107341"
+  },
+  "Jackson Square T Stop": {
+    "name": "Jackson Square T Stop",
+    "lat": "42.322701",
+    "long": "-71.099533"
+  },
+  "Roxbury Crossing T Stop - Columbus Ave at Tremont St": {
+    "name": "Roxbury Crossing T Stop - Columbus Ave at Tremont St",
+    "lat": "42.331184",
+    "long": "-71.095171"
+  },
+  "Dudley Square - Dudley St at Warren St": {
+    "name": "Dudley Square - Dudley St at Warren St",
+    "lat": "42.328654",
+    "long": "-71.084198"
+  },
+  "Columbus Ave at Massachusetts Ave": {
+    "name": "Columbus Ave at Massachusetts Ave",
+    "lat": "42.340799",
+    "long": "-71.081572"
+  },
+  "Brigham Circle - Francis St at Huntington Ave": {
+    "name": "Brigham Circle - Francis St at Huntington Ave",
+    "lat": "42.334073",
+    "long": "-71.105221"
+  },
+  "Longwood Ave at Binney St": {
+    "name": "Longwood Ave at Binney St",
+    "lat": "42.338629",
+    "long": "-71.1065"
+  },
+  "HMS\/HSPH - Avenue Louis Pasteur at Longwood Ave": {
+    "name": "HMS\/HSPH - Avenue Louis Pasteur at Longwood Ave",
+    "lat": "42.337171",
+    "long": "-71.102797"
+  },
+  "Colleges of the Fenway - Fenway at Avenue Louis Pasteur": {
+    "name": "Colleges of the Fenway - Fenway at Avenue Louis Pasteur",
+    "lat": "42.340021",
+    "long": "-71.100812"
+  },
+  "Franklin Park Zoo - Franklin Park Rd at Blue Hill Ave": {
+    "name": "Franklin Park Zoo - Franklin Park Rd at Blue Hill Ave",
+    "lat": "42.303469",
+    "long": "-71.085347"
+  },
+  "Boston City Hall - 28 State St": {
+    "name": "Boston City Hall - 28 State St",
+    "lat": "42.35892",
+    "long": "-71.057629"
+  },
+  "Purchase St at Pearl St": {
+    "name": "Purchase St at Pearl St",
+    "lat": "42.354659",
+    "long": "-71.053181"
+  },
+  "Dorchester Ave at Gillette Park": {
+    "name": "Dorchester Ave at Gillette Park",
+    "lat": "42.344023",
+    "long": "-71.057054"
+  },
+  "Boston Convention and Exhibition Center - Summer St at West Side Dr": {
+    "name": "Boston Convention and Exhibition Center - Summer St at West Side Dr",
+    "lat": "42.3475",
+    "long": "-71.0441"
+  },
+  "Grove Hall Library - 41 Geneva Ave": {
+    "name": "Grove Hall Library - 41 Geneva Ave",
+    "lat": "42.30791",
+    "long": "-71.080952"
+  },
+  "Murphy Skating Rink - 1880 Day Blvd": {
+    "name": "Murphy Skating Rink - 1880 Day Blvd",
+    "lat": "42.336448",
+    "long": "-71.023739"
+  },
+  "Washington St at Lenox St": {
+    "name": "Washington St at Lenox St",
+    "lat": "42.3348756",
+    "long": "-71.0790969"
+  },
+  "W Broadway at Dorchester St": {
+    "name": "W Broadway at Dorchester St",
+    "lat": "42.335693",
+    "long": "-71.045859"
+  },
+  "South Boston Library - 646 E Broadway": {
+    "name": "South Boston Library - 646 E Broadway",
+    "lat": "42.335741",
+    "long": "-71.03877"
+  },
+  "South End Library - Tremont St at W Newton St": {
+    "name": "South End Library - Tremont St at W Newton St",
+    "lat": "42.341332",
+    "long": "-71.076847"
+  },
+  "Roxbury YMCA - Warren St at MLK Blvd": {
+    "name": "Roxbury YMCA - Warren St at MLK Blvd",
+    "lat": "42.317899",
+    "long": "-71.082651"
+  },
+  "JFK\/UMass T Stop": {
+    "name": "JFK\/UMass T Stop",
+    "lat": "42.320494",
+    "long": "-71.051122"
+  },
+  "Wentworth Institute of Technology - Huntington Ave at Vancouver St": {
+    "name": "Wentworth Institute of Technology - Huntington Ave at Vancouver St",
+    "lat": "42.337596",
+    "long": "-71.096391"
+  },
+  "Franklin Park - Seaver St at Humbolt Ave": {
+    "name": "Franklin Park - Seaver St at Humbolt Ave",
+    "lat": "42.309796",
+    "long": "-71.092225"
+  },
+  "Brighton Mills - 370 Western Ave": {
+    "name": "Brighton Mills - 370 Western Ave",
+    "lat": "42.361667",
+    "long": "-71.13802"
+  },
+  "Northeastern University - North Parking Lot": {
+    "name": "Northeastern University - North Parking Lot",
+    "lat": "42.341814",
+    "long": "-71.090179"
+  },
+  "Egleston Square - Atherton St at Washington St": {
+    "name": "Egleston Square - Atherton St at Washington St",
+    "lat": "42.315692",
+    "long": "-71.098634"
+  },
+  "Newmarket Square T Stop - Massachusetts Ave at Newmarket Square": {
+    "name": "Newmarket Square T Stop - Massachusetts Ave at Newmarket Square",
+    "lat": "42.326599",
+    "long": "-71.066498"
+  },
+  "Union Square - Brighton Ave at Cambridge St": {
+    "name": "Union Square - Brighton Ave at Cambridge St",
+    "lat": "42.353334",
+    "long": "-71.137313"
+  },
+  "The Lawn on D": {
+    "name": "The Lawn on D",
+    "lat": "42.344792",
+    "long": "-71.044024"
+  },
+  "NCAAA - Walnut Ave at Crawford St": {
+    "name": "NCAAA - Walnut Ave at Crawford St",
+    "lat": "42.316902",
+    "long": "-71.091946"
+  },
+  "Lewis Wharf at Atlantic Ave": {
+    "name": "Lewis Wharf at Atlantic Ave",
+    "lat": "42.363871",
+    "long": "-71.050877"
+  },
+  "Congress St at Northern Ave": {
+    "name": "Congress St at Northern Ave",
+    "lat": "42.3481",
+    "long": "-71.03764"
+  },
+  "Boylston St at Washington St": {
+    "name": "Boylston St at Washington St",
+    "lat": "42.352409",
+    "long": "-71.062679"
+  },
+  "Tremont St at West St": {
+    "name": "Tremont St at West St",
+    "lat": "42.354979",
+    "long": "-71.063348"
+  },
+  "Seaport Hotel - Congress St at Seaport Ln": {
+    "name": "Seaport Hotel - Congress St at Seaport Ln",
+    "lat": "42.348833",
+    "long": "-71.041747"
+  },
+  "Brighton Center - Washington St at Cambridge St": {
+    "name": "Brighton Center - Washington St at Cambridge St",
+    "lat": "42.34894857235593",
+    "long": "-71.15027189254761"
+  },
+  "S Huntington Ave at Heath St": {
+    "name": "S Huntington Ave at Heath St",
+    "lat": "42.3279727",
+    "long": "-71.1108971"
+  },
+  "Commonwealth Ave at Buick St": {
+    "name": "Commonwealth Ave at Buick St",
+    "lat": "42.351246",
+    "long": "-71.115639"
+  },
+  "Washington St at Rutland St": {
+    "name": "Washington St at Rutland St",
+    "lat": "42.338623",
+    "long": "-71.074182"
+  },
+  "Savin Hill T Stop - S Sydney St at Bay St": {
+    "name": "Savin Hill T Stop - S Sydney St at Bay St",
+    "lat": "42.3106",
+    "long": "-71.0539"
+  },
+  "Aquarium T Stop - 200 Atlantic Ave": {
+    "name": "Aquarium T Stop - 200 Atlantic Ave",
+    "lat": "42.35977",
+    "long": "-71.051601"
+  },
+  "Curtis Hall - South St at Centre St": {
+    "name": "Curtis Hall - South St at Centre St",
+    "lat": "42.309054",
+    "long": "-71.11543"
+  },
+  "Airport T Stop - Bremen St at Brooks St": {
+    "name": "Airport T Stop - Bremen St at Brooks St",
+    "lat": "42.375339",
+    "long": "-71.031304"
+  },
+  "Central Square - East Boston": {
+    "name": "Central Square - East Boston",
+    "lat": "42.374335",
+    "long": "-71.039685"
+  },
+  "Chelsea St at Saratoga St": {
+    "name": "Chelsea St at Saratoga St",
+    "lat": "42.379772",
+    "long": "-71.027448"
+  },
+  "East Boston Neighborhood Health Center - 20 Maverick Square": {
+    "name": "East Boston Neighborhood Health Center - 20 Maverick Square",
+    "lat": "42.369536",
+    "long": "-71.039431"
+  },
+  "Arch St at Franklin St": {
+    "name": "Arch St at Franklin St",
+    "lat": "42.35530156110769",
+    "long": "-71.0582560300827"
+  },
+  "Cambridge St at Joy St": {
+    "name": "Cambridge St at Joy St",
+    "lat": "42.36130407013564",
+    "long": "-71.0652096569538"
+  },
+  "Glendon St at Condor St": {
+    "name": "Glendon St at Condor St",
+    "lat": "42.38240377674137",
+    "long": "-71.03024303913116"
+  },
+  "Post Office Square - Pearl St at Milk St": {
+    "name": "Post Office Square - Pearl St at Milk St",
+    "lat": "42.356755",
+    "long": "-71.055407"
+  },
+  "Congress St at Sleeper St": {
+    "name": "Congress St at Sleeper St",
+    "lat": "42.351004495946704",
+    "long": "-71.04930013418198"
+  },
+  "Columbia Rd at Ceylon St": {
+    "name": "Columbia Rd at Ceylon St",
+    "lat": "42.309572",
+    "long": "-71.0729"
+  },
+  "Hayes Square - Vine St at Moulton St": {
+    "name": "Hayes Square - Vine St at Moulton St",
+    "lat": "42.377022",
+    "long": "-71.056605"
+  },
+  "Charles Circle - Charles St at Cambridge St": {
+    "name": "Charles Circle - Charles St at Cambridge St",
+    "lat": "42.36071444836764",
+    "long": "-71.07092812657356"
+  },
+  "Boston Medical Center - E Concord St at Harrison Ave": {
+    "name": "Boston Medical Center - E Concord St at Harrison Ave",
+    "lat": "42.336437",
+    "long": "-71.073089"
+  },
+  "Charles st and Beacon St": {
+    "name": "Charles st and Beacon St",
+    "lat": "42.356052",
+    "long": "-71.069849"
+  },
+  "Washington St at Waltham St": {
+    "name": "Washington St at Waltham St",
+    "lat": "42.341522",
+    "long": "-71.068922"
+  },
+  "The Eddy - New St at Sumner St": {
+    "name": "The Eddy - New St at Sumner St",
+    "lat": "42.370744",
+    "long": "-71.044201"
+  },
+  "Burlington Ave at Brookline Ave": {
+    "name": "Burlington Ave at Brookline Ave",
+    "lat": "42.345733",
+    "long": "-71.100694"
+  },
+  "Piers Park": {
+    "name": "Piers Park",
+    "lat": "42.365431546274806",
+    "long": "-71.03625655174255"
+  },
+  "E Cottage St at Columbia Rd": {
+    "name": "E Cottage St at Columbia Rd",
+    "lat": "42.320561",
+    "long": "-71.06198"
+  },
+  "Andrew T Stop - Dorchester Ave at Dexter St": {
+    "name": "Andrew T Stop - Dorchester Ave at Dexter St",
+    "lat": "42.330473650415165",
+    "long": "-71.05701684951782"
+  },
+  "Ryan Playground - Dorchester Ave at Harbor View St": {
+    "name": "Ryan Playground - Dorchester Ave at Harbor View St",
+    "lat": "42.317642",
+    "long": "-71.056664"
+  },
+  "Packard Ave \/ Powderhouse Blvd": {
+    "name": "Packard Ave \/ Powderhouse Blvd",
+    "lat": "42.40449",
+    "long": "-71.123413"
+  },
+  "Hyde Square - Barbara St at Centre St": {
+    "name": "Hyde Square - Barbara St at Centre St",
+    "lat": "42.320998",
+    "long": "-71.110833"
+  },
+  "Maverick Square - Lewis Mall": {
+    "name": "Maverick Square - Lewis Mall",
+    "lat": "42.368844082898356",
+    "long": "-71.03977829217911"
+  },
+  "Wilson Square": {
+    "name": "Wilson Square",
+    "lat": "42.385582",
+    "long": "-71.113341"
+  },
+  "Beacon St at Washington \/ Kirkland": {
+    "name": "Beacon St at Washington \/ Kirkland",
+    "lat": "42.37842",
+    "long": "-71.105668"
+  },
+  "Clarendon Hill at Broadway": {
+    "name": "Clarendon Hill at Broadway",
+    "lat": "42.406302",
+    "long": "-71.132446"
+  },
+  "Broadway St at Mt Pleasant St": {
+    "name": "Broadway St at Mt Pleasant St",
+    "lat": "42.386141411639564",
+    "long": "-71.07828140258789"
+  },
+  "Walnut Ave at Warren St": {
+    "name": "Walnut Ave at Warren St",
+    "lat": "42.324081",
+    "long": "-71.083235"
+  },
+  "Soldiers Field Park - 111 Western Ave": {
+    "name": "Soldiers Field Park - 111 Western Ave",
+    "lat": "42.365064",
+    "long": "-71.119233"
+  },
+  "Beacon St at Massachusetts Ave": {
+    "name": "Beacon St at Massachusetts Ave",
+    "lat": "42.35082680669095",
+    "long": "-71.0898108780384"
+  },
+  "Allston Green District - Griggs St at Commonwealth Ave": {
+    "name": "Allston Green District - Griggs St at Commonwealth Ave",
+    "lat": "42.34852014581272",
+    "long": "-71.13394662737846"
+  },
+  "Upham's Corner T Stop - Magnolia St at Dudley St": {
+    "name": "Upham's Corner T Stop - Magnolia St at Dudley St",
+    "lat": "42.318697341722434",
+    "long": "-71.0697814822197"
+  },
+  "Yawkey Way at Boylston St.": {
+    "name": "Yawkey Way at Boylston St.",
+    "lat": "42.3446808403874",
+    "long": "-71.09785348176956"
+  },
+  "Boylston St at Massachusetts Ave": {
+    "name": "Boylston St at Massachusetts Ave",
+    "lat": "42.347265",
+    "long": "-71.088088"
+  },
+  "Upham's Corner": {
+    "name": "Upham's Corner",
+    "lat": "42.317283",
+    "long": "-71.065363"
+  },
+  "Newbury St at Hereford St": {
+    "name": "Newbury St at Hereford St",
+    "lat": "42.348717",
+    "long": "-71.085954"
+  },
+  "Kenmore Square": {
+    "name": "Kenmore Square",
+    "lat": "42.348706",
+    "long": "-71.097009"
+  },
+  "Boylston St at Fairfield St": {
+    "name": "Boylston St at Fairfield St",
+    "lat": "42.348762",
+    "long": "-71.082383"
+  },
+  "Boylston St at Dartmouth St": {
+    "name": "Boylston St at Dartmouth St",
+    "lat": "42.350413",
+    "long": "-71.07655"
+  },
+  "Boylston St at Arlington St": {
+    "name": "Boylston St at Arlington St",
+    "lat": "42.352033",
+    "long": "-71.070627"
+  },
+  "Boylston St at Berkeley St": {
+    "name": "Boylston St at Berkeley St",
+    "lat": "42.3511419825475",
+    "long": "-71.07329249382019"
+  },
+  "Watermark Seaport - Boston Wharf Rd at Seaport Blvd": {
+    "name": "Watermark Seaport - Boston Wharf Rd at Seaport Blvd",
+    "lat": "42.351586001198456",
+    "long": "-71.04569256305693"
+  },
+  "Museum of Science": {
+    "name": "Museum of Science",
+    "lat": "42.36769018024484",
+    "long": "-71.07116281986237"
+  },
+  "JFK Crossing at Harvard St. \/ Thorndike St.": {
+    "name": "JFK Crossing at Harvard St. \/ Thorndike St.",
+    "lat": "42.346563",
+    "long": "-71.128374"
+  },
+  "Brookline Village - Station Street @ MBTA": {
+    "name": "Brookline Village - Station Street @ MBTA",
+    "lat": "42.33289074055233",
+    "long": "-71.11658334732056"
+  },
+  "Washington Square at Washington St. \/ Beacon St.": {
+    "name": "Washington Square at Washington St. \/ Beacon St.",
+    "lat": "42.339335",
+    "long": "-71.13493"
+  },
+  "Coolidge Corner - Beacon St @ Centre St": {
+    "name": "Coolidge Corner - Beacon St @ Centre St",
+    "lat": "42.341598",
+    "long": "-71.123338"
+  },
+  "Teele Square at 239 Holland St": {
+    "name": "Teele Square at 239 Holland St",
+    "lat": "42.402763",
+    "long": "-71.126908"
+  },
+  "University of Massachusetts Boston - Integrated Sciences Complex": {
+    "name": "University of Massachusetts Boston - Integrated Sciences Complex",
+    "lat": "42.314507",
+    "long": "-71.041269"
+  },
+  "Verizon Innovation Hub 10 Ware Street": {
+    "name": "Verizon Innovation Hub 10 Ware Street",
+    "lat": "42.37250864997261",
+    "long": "-71.11305356025696"
+  },
+  "Fresh Pond Reservation": {
+    "name": "Fresh Pond Reservation",
+    "lat": "42.38267827521855",
+    "long": "-71.143478951426"
+  },
+  "Commonwealth Ave At Babcock St": {
+    "name": "Commonwealth Ave At Babcock St",
+    "lat": "42.35154734791375",
+    "long": "-71.12126246094704"
+  },
+  "Oak Square - 615 Washington St": {
+    "name": "Oak Square - 615 Washington St",
+    "lat": "42.35057",
+    "long": "-71.166491"
+  },
+  "Silber Way": {
+    "name": "Silber Way",
+    "lat": "42.34949599514002",
+    "long": "-71.10057592391968"
+  },
+  "Cambridge Dept. of Public Works -147 Hampshire St.": {
+    "name": "Cambridge Dept. of Public Works -147 Hampshire St.",
+    "lat": "42.37119727759414",
+    "long": "-71.09759867191315"
+  },
+  "One Memorial Drive": {
+    "name": "One Memorial Drive",
+    "lat": "42.361619320766856",
+    "long": "-71.0804355052096"
+  },
+  "Charles St and Beacon St": {
+    "name": "Charles St and Beacon St",
+    "lat": "42.356052",
+    "long": "-71.069849"
+  },
+  "Lower Cambridgeport at Magazine St \/ Riverside Rd": {
+    "name": "Lower Cambridgeport at Magazine St \/ Riverside Rd",
+    "lat": "42.357218503176526",
+    "long": "-71.1138716340065"
+  },
+  "Seaport Blvd at Sleeper St": {
+    "name": "Seaport Blvd at Sleeper St",
+    "lat": "42.35317809186252",
+    "long": "-71.04817356923377"
+  },
+  "Huron Ave. At Vassal Lane": {
+    "name": "Huron Ave. At Vassal Lane",
+    "lat": "42.381650612901176",
+    "long": "-71.13426981498378"
+  },
+  "Troy Boston": {
+    "name": "Troy Boston",
+    "lat": "42.343749",
+    "long": "-71.062256"
+  },
+  "Faneuil St at Market St": {
+    "name": "Faneuil St at Market St",
+    "lat": "42.35484",
+    "long": "-71.150226"
+  },
+  "Upham's Corner TEMPORARY WINTER LOCATION": {
+    "name": "Upham's Corner TEMPORARY WINTER LOCATION",
+    "lat": "42.31750891943043",
+    "long": "-71.06416625906604"
+  },
+  "Brookline Village - Station Street @ MBTA TEMPORARY WINTER LOCATION": {
+    "name": "Brookline Village - Station Street @ MBTA TEMPORARY WINTER LOCATION",
+    "lat": "42.33376472623494",
+    "long": "-71.12046446660315"
+  },
+  "Charles Circle - Charles St at Cambridge St TEMPORARY WINTER LOCATION": {
+    "name": "Charles Circle - Charles St at Cambridge St TEMPORARY WINTER LOCATION",
+    "lat": "42.36075761041193",
+    "long": "-71.07132909824031"
+  },
+  "Boylston St at Arlington St TEMPORARY WINTER LOCATION": {
+    "name": "Boylston St at Arlington St TEMPORARY WINTER LOCATION",
+    "lat": "42.352583438376996",
+    "long": "-71.06766249993596"
+  },
+  "Washington Square at Washington St. \/ Beacon St. TEMPORARY WINTER LOCATION": {
+    "name": "Washington Square at Washington St. \/ Beacon St. TEMPORARY WINTER LOCATION",
+    "lat": "42.338254270769454",
+    "long": "-71.13905482012342"
+  },
+  "Allston Green District - Griggs St at Commonwealth Ave TEMPORARY WINTER LOCATION": {
+    "name": "Allston Green District - Griggs St at Commonwealth Ave TEMPORARY WINTER LOCATION",
+    "lat": "42.34922469338298",
+    "long": "-71.13275302578586"
+  },
+  "Four Corners - 157 Washington St": {
+    "name": "Four Corners - 157 Washington St",
+    "lat": "42.304127927390155",
+    "long": "-71.07929527759552"
+  }
+}

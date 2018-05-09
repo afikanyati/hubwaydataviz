@@ -13,13 +13,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1IjoiYWZpa2FueWF0aSIsImEiOiJjajN2cDhhemgwMDNwNDZvMnV2aGsybXBiIn0.xMS5RIax-2CoNplp4MX62A'
 }).addTo(viz5);
 
-// geoJSON styling for trip routes
-let routeStyle = {
-    "color": "",
-    "weight": 5,
-    "opacity": 0.3
-};
-
 // Stores list of all stations visited in 2017
 let stations = {};
 // Stores a network graph of all stations visited in 2017
@@ -130,17 +123,27 @@ function addStationRoutesToMap(name) {
             return;
         }
         let avgSpeed = route.meters/(route.cumulativeTripTime/route.tripCount);
-        routeStyle.color = colorScale(avgSpeed);
+        let color = colorScale(avgSpeed);
         let layer = L.geoJSON(route.geoJSON, {
-                        style: routeStyle
+                        style: {
+                            "color": color,
+                            "weight": 5,
+                            "opacity": 0.3
+                        }
                     })
                     .on('mouseover', function (e) {
-                        routeStyle.opacity = 1;
-                        this.setStyle(routeStyle);
+                        this.setStyle({
+                            "color": color,
+                            "weight": 5,
+                            "opacity": 1
+                        });
                     })
                     .on('mouseout', function (e) {
-                        routeStyle.opacity = 0.3;
-                        this.setStyle(routeStyle);
+                        this.setStyle({
+                            "color": color,
+                            "weight": 5,
+                            "opacity": 0.3
+                        });
                     })
                     .addTo(viz5);
         let routePathNum = geoJSONLayers.push(layer) - 1;
@@ -157,6 +160,7 @@ function addStationRoutesToMap(name) {
                 // Activate Route
                 activeRoute = {start: name, end: end};
                 // Clear other routes and bikers
+                bikeMarkers[bikeMarkerNum[0]].openPopup();
                 clearGeoJSONLayers(routePathNum);
                 clearBikeMarkers(bikeMarkerNum[0]);
             }
@@ -254,12 +258,6 @@ function startBikeAnimation(route, start, end) {
                         radius: 8
                     })
                     .bindPopup("<b>Start:</b> " + start + "<br><b>End:</b> " + end + "<br><b>Average Speed:</b> " + Math.round(route.avgSpeed * 100) / 100 + " m/s")
-                    .on('mouseover', function (e) {
-                        this.openPopup();
-                    })
-                    .on('mouseout', function (e) {
-                        this.closePopup();
-                    })
                     .addTo(viz5);
 
                 // Add bike marker
