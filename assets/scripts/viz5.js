@@ -45,16 +45,7 @@ let activeStation = null;
 // Stores currently active station
 let activeRoute = null;
 
-// Load Data
-d3.queue()
-    .defer(d3.json, "assets/data/viz5_stations.json")
-    .defer(d3.json, "assets/data/viz5_station_network.json")
-    .defer(d3.json, "assets/data/viz5_distinct_trips.json")
-    .await(buildVizFive);
-
-function buildVizFive(error, stationData, networkData, distinctTripsData) {
-    if (error) throw error;
-
+function buildVizFive(stationData, networkData, distinctTripsData) {
     // Cache data
     stations = stationData;
     stationNetwork = networkData;

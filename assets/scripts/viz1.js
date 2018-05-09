@@ -13,12 +13,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1IjoiYWZpa2FueWF0aSIsImEiOiJjajN2cDhhemgwMDNwNDZvMnV2aGsybXBiIn0.xMS5RIax-2CoNplp4MX62A'
 }).addTo(viz1);
 
-d3.json("assets/data/stations.json", function(error, data) {
-    if (error) throw error;
-    
-    for (let name in data) {
+function buildVizOne(stationData) {
+    for (let name in stationData) {
         // Get station name
-        var station = data[name];
+        var station = stationData[name];
 
         // Place Station Marker on Map
         L.circle([station.lat, station.long], {
@@ -35,4 +33,4 @@ d3.json("assets/data/stations.json", function(error, data) {
         })
         .addTo(viz1);
     }
-});
+}

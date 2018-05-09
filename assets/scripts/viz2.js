@@ -19,31 +19,25 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1IjoiYWZpa2FueWF0aSIsImEiOiJjajN2cDhhemgwMDNwNDZvMnV2aGsybXBiIn0.xMS5RIax-2CoNplp4MX62A'
 }).addTo(viz2);
 
-//CREATES THE HUBWAY ICON (SAVED WITHIN ASETS FOLDER)
-//APPARENTLY LOGO NEEDS SHADOWS
-var hubwayIcon = L.icon({
-    iconUrl: 'assets/images/hubway-logo.png',
-    shadowUrl: 'assets/images/hubway-logo-shadow.png',
-//DEFINING SIZE OF LOGO
-    iconSize:     [38, 38], // size of the icon
-    shadowSize:   [38, 38], // size of the shadow
-    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
-    shadowAnchor: [-10, -2],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
 
 //USING D3: STATIONS.JSON WITH EVERY STATION AND ALL OF ITS INFO BUT NOW USE ONLY 2017 DATA SO NOT STATION.JSON
 
-// Load Data
-d3.queue()
-  .defer(d3.json, "assets/data/2017.json")
-  .await(buildVizTwo);
+function buildVizTwo (stationData, yearData) {
 
-function buildVizTwo (error, data) {
-    if (error) throw error;
-    
-    for (var stationName in data) {
-        var station = data[stationName];
-        L.marker([station.lat, station.long], {icon: hubwayIcon}).addTo(viz2);
+    for (var stationName in stationData) {
+        var station = stationData[stationName];
+        L.circle([station.lat, station.long], {
+            color: '#289699',
+            fillColor: '#289699',
+            fillOpacity: 1,
+            radius: 15
+        }).bindPopup("<b>" + stationName + "</b>", {'autoClose': false})
+        .on('mouseover', function (e) {
+            this.openPopup();
+        })
+        .on('mouseout', function (e) {
+            this.closePopup();
+        })
+        .addTo(viz2);
     }
 }

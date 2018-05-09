@@ -2,10 +2,6 @@
 //
 // Has Hubway popularity increased over time?
 
-// Load Data
-d3.queue()
-    .defer(d3.json, "assets/data/viz7.json")
-    .await(buildVizSeven);
 
 // Intialize Variables
 let margin7 = {top: 60, right: 40, bottom: 60, left: 60},
@@ -32,9 +28,7 @@ let svg7 = d3.select('#viz7').append("svg")
             .append("g")
             .attr("transform", "translate(" + margin7.left + "," + margin7.top + ")");
 
-function buildVizSeven (error, data) {
-
-    if (error) throw error;
+function buildVizSeven (data) {
 
     x7.domain(d3.extent(data, function(d) {return d.year;})).nice();
     y7.domain(d3.extent(data, function(d) {return d.trips;})).nice();
