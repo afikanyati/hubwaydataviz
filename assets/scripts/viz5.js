@@ -28,10 +28,6 @@ let stationNetwork = {};
 let minSpeed = Infinity;
 // Stores the maximum bike speed for calculating d3js color scale
 let maxSpeed = -Infinity;
-// Stores route promises from OSRM api for all trips in 2017
-let routePromises = [];
-// Stores the start station and end station data for each route promise. Indices should correspond.
-let routes = [];
 // Stores data on all the currently active geoJSON routes on the map
 let geoJSONLayers = [];
 // Stores data on all the currently active bicycle markers on the map
@@ -40,23 +36,29 @@ let bikeMarkers = [];
 let bikeIntervals = [];
 // Stores the d3js color scale
 let colorScale;
+// Stores distinct start-end station trips in 2017
+let distinctTrips = [];
 // Stores whether user has currently selected a station
 let stationSelected = false;
+// Stores currently active station
+let activeStation = null;
+// Stores currently active station
+let activeRoute = null;
 
 // Load Data
 d3.queue()
-    .defer(d3.json, "assets/data/stations.json")
-    .defer(d3.json, "assets/data/hubway_station_network.json")
-    .defer(d3.json, "assets/data/2017.json")
+    .defer(d3.json, "assets/data/viz5_stations.json")
+    .defer(d3.json, "assets/data/viz5_station_network.json")
+    .defer(d3.json, "assets/data/viz5_distinct_trips.json")
     .await(buildVizFive);
 
-function buildVizFive(error, stationData, networkData, yearData) {
+function buildVizFive(error, stationData, networkData, distinctTripsData) {
     if (error) throw error;
 
-    console.log("Getting Station Data...");
     // Cache data
     stations = stationData;
     stationNetwork = networkData;
+    distinctTrips = distinctTripsData;
 
     // Place Stations on Map
     for (let name in stationData) {
@@ -69,7 +71,7 @@ function buildVizFive(error, stationData, networkData, yearData) {
             fillColor: '#289699',
             fillOpacity: 1,
             radius: 15
-        }).bindPopup("<b>" + name + "</b>", {'autoClose': false})
+        }).bindPopup("<b>" + name + "</b>", {'autoClose': false, closeOnClick: false})
         .on('mouseover', function (e) {
             if (!stationSelected) {
                 this.openPopup();
@@ -82,105 +84,46 @@ function buildVizFive(error, stationData, networkData, yearData) {
                 this.closePopup();
             }
         })
-        .on('click', addStationRoutesToMap.bind({}, name))
-        .on('popupclose', function(e) {
-            if (geoJSONLayers.length > 0) {
-                clearGeoJSONLayers();
-                clearBikeMarkers();
+        .on('click', function(e){
+            if (!activeStation) {
+                activeStation = name;
+                addStationRoutesToMap(name);
             }
+        })
+        .on('popupclose', function(e) {
+            activeStation = null;
+            clearGeoJSONLayers();
+            clearBikeMarkers();
         })
         .addTo(viz5);
     }
 
-    // Calculate average speeds between two stops
-    // Add trip routes to map
-    // Sum Trip Durations
-    console.log("Summing Trip Durations...");
-    for (let i = 0; i < yearData.length; i++) {
-        let start = yearData[i]['start station name'];
-        let end = yearData[i]['end station name'];
+    // Calculate minimum and maximum speeds
+    for (let i = 0; i < distinctTrips.length; i++) {
+        let start = distinctTrips[i]['start'];
+        let end = distinctTrips[i]['end'];
+        let avgSpeed = (stationNetwork[start][end]['meters'])/(stationNetwork[start][end].cumulativeTripTime/stationNetwork[start][end].tripCount);
+        stationNetwork[start][end]['avgSpeed'] = avgSpeed;
 
-        if (start != end) {
-            stationNetwork[start][end].cumulativeTripTime += +yearData[i]['tripduration'];
-            stationNetwork[start][end].tripCount += 1;
-            stationNetwork[end][start].cumulativeTripTime += +yearData[i]['tripduration'];
-            stationNetwork[end][start].tripCount += 1;
+        // Check if lower than min speed
+        // Only do if start-end station pair has at least one trip
+        if (avgSpeed < minSpeed && Object.keys(stationNetwork[start][end].geoJSON).length > 0) {
+           minSpeed = avgSpeed;
+        }
+
+        // Check if higher than min speed
+        // Only do if start-end station pair has at least one trip
+        if (avgSpeed > maxSpeed && Object.keys(stationNetwork[start][end].geoJSON).length > 0) {
+           maxSpeed = avgSpeed;
         }
     }
 
-    // Add route to station network
-    // for (let i = 0; i < yearData.length; i++) {
-    //     let start = yearData[i]['start station name'];
-    //     let end = yearData[i]['end station name'];
-    //
-    //     // Only calculate if a positive route
-    //     if (start != end && stationNetwork[start][end]['avgSpeed'] == 0) {
-    //         // Get route
-    //         let route = getTripRoute(stations[start].lat, stations[start].long, stations[end].lat, stations[end].long);
-    //
-    //         let avgSpeed = stationNetwork[start][end]['meters']/(stationNetwork[start][end].cumulativeTripTime/stationNetwork[end][start].tripCount);
-    //         stationNetwork[start][end]['avgSpeed'] == avgSpeed;
-    //         // Check if lower than min speed
-    //         if (avgSpeed < minSpeed) {
-    //            minSpeed = avgSpeed;
-    //         }
-    //
-    //         // Check if higher than min speed
-    //         if (avgSpeed > maxSpeed) {
-    //            maxSpeed = avgSpeed;
-    //         }
-    //
-    //         // Place Route Promise in routePromise Array
-    //         routePromises.push(route);
-    //         routes.push({start: start, end: end});
-    //     }
-    // }
-    //
-    // // Set Color Scale
-    // let scaleInc = (maxSpeed - minSpeed)/2;
-    // colorScale = d3.scaleLinear().domain([minSpeed - scaleInc, minSpeed, minSpeed + scaleInc, maxSpeed, maxSpeed + scaleInc]).range(["#fdf5a6", "#f7dc6a", "#ef6945", "#b73227", "#b21e45"]);
-    //
-    // // Calculate route distance
-    // // Add routeJSON to routes network
-    // Promise.all(routePromises).then(function(promises) {
-    //     console.log("Adding Routes to Network...");
-    //     promises.forEach(function(route, i) {
-    //         let distance = 0;
-    //         for (let i = 0; i < route.geometry.coordinates.length - 1; i++) {
-    //             let d = coordDistance(route.geometry.coordinates[i][0], route.geometry.coordinates[i][1], route.geometry.coordinates[i+1][0], route.geometry.coordinates[i+1][1]) * 1000;
-    //             distance += d;
-    //         }
-    //         stationNetwork[routes[i]['start']][routes[i]['end']]['geoJSON'] = route.geometry;
-    //         stationNetwork[routes[i]['start']][routes[i]['end']]['meters'] = distance;
-    //     });
-    //     //download(JSON.stringify(stationNetwork), 'hubway_station_network_final.json', 'application/json');
-    //     return resolve();
-    // });
-    console.log("Data Visualization Loaded!");
+    // Set Color Scale
+    let scaleInc = (maxSpeed - minSpeed)/2;
+    colorScale = d3.scaleLinear().domain([minSpeed - scaleInc, minSpeed, minSpeed + scaleInc, maxSpeed, maxSpeed + scaleInc]).range(["#fdf5a6", "#f7dc6a", "#ef6945", "#b73227", "#b21e45"]);
 };
 
 // ===== Helper Functions =====
-
-// Gets shortest path between two lat-long points
-// Uses OSRM API
-// [string] lat1: latitude of start station (in decimal degrees)
-// [string] long1: longitude of start station (in decimal degrees)
-// [string] lat2: latitude of end station (in decimal degrees)
-// [string] long2: longitude of end station (in decimal degrees)
-function getTripRoute (lat1,long1,lat2,long2) {
-    let api = new Promise(function(resolve) {
-        var request = new XMLHttpRequest();
-        var url = "http://router.project-osrm.org/route/v1/bike/" + long1 + "," + lat1 + ";" + long2 + "," + lat2 + "?geometries=geojson";
-
-        fetch(url).then(function(response) {
-                return resolve(response.json());
-        });
-    });
-
-    return api.then(function(result) {
-        return result['routes'][0];
-    });
-}
 
 // Adds Trip Routes from a Given Station to the Map
 // [string] name: name of start station
@@ -188,54 +131,67 @@ function addStationRoutesToMap(name) {
     let station = stationNetwork[name];
     let destinations = Object.keys(station);
 
-    // Clear Old Routes
-    clearGeoJSONLayers();
-
-    // Clear Old Bikes
-    clearBikeMarkers();
-
     // Add routes to map
-    Promise.all(routePromises).then(function() {
-        destinations.forEach(function(end, i) {
-            let route = station[end];
-            let avgSpeed = route.meters/(route.cumulativeTripTime/route.tripCount);
-            routeStyle.color = colorScale(avgSpeed);
-            let layer = L.geoJSON(route.geoJSON, {
-                            style: routeStyle
-                        })
-                        .bindPopup("<b>Start:</b> " + name + "<br><b>End:</b> " + end + "<br><b>Average Speed:</b> " + Math.round(route.avgSpeed * 100) / 100 + " m/s")
-                        .on('mouseover', function (e) {
-                            routeStyle.opacity = 1;
-                            this.setStyle(routeStyle);
-                            this.openPopup();
-                        })
-                        .on('mouseout', function (e) {
-                            routeStyle.opacity = 0.3;
-                            this.setStyle(routeStyle);
-                            this.closePopup();
-                        })
-                        .addTo(viz5);
-            geoJSONLayers.push(layer);
-        });
+    destinations.forEach(function(end, i) {
+        let route = station[end];
+
+        if (Object.keys(route.geoJSON) == 0) {
+            return;
+        }
+        let avgSpeed = route.meters/(route.cumulativeTripTime/route.tripCount);
+        routeStyle.color = colorScale(avgSpeed);
+        let layer = L.geoJSON(route.geoJSON, {
+                        style: routeStyle
+                    })
+                    .on('mouseover', function (e) {
+                        routeStyle.opacity = 1;
+                        this.setStyle(routeStyle);
+                    })
+                    .on('mouseout', function (e) {
+                        routeStyle.opacity = 0.3;
+                        this.setStyle(routeStyle);
+                    })
+                    .addTo(viz5);
+        let routePathNum = geoJSONLayers.push(layer) - 1;
+        let bikeMarkerNum = startBikeAnimation(route, name, end);
+        layer.on('click', function(e) {
+            if (activeRoute && _.isEqual(activeRoute, {start: name, end: end})) {
+                // Deactivate Route
+                activeRoute = null;
+                // Show other routes and bikers
+                clearGeoJSONLayers();
+                clearBikeMarkers();
+                addStationRoutesToMap(activeStation);
+            } else {
+                // Activate Route
+                activeRoute = {start: name, end: end};
+                // Clear other routes and bikers
+                clearGeoJSONLayers(routePathNum);
+                clearBikeMarkers(bikeMarkerNum[0]);
+            }
+        })
     });
 }
 
 // Removes all Trip Routes from the Map
-function clearGeoJSONLayers() {
-    geoJSONLayers.forEach(function(layer) {
+function clearGeoJSONLayers(except) {
+    geoJSONLayers.forEach(function(layer, i) {
+        if (except == i) {
+            return;
+        }
         layer.clearLayers();
     });
-    geoJSONLayers = [];
 }
 
 // Removes all Trip Routes from the Map
-function clearBikeMarkers() {
+function clearBikeMarkers(except) {
     bikeMarkers.forEach(function(marker, i) {
+        if (except == i) {
+            return;
+        }
         marker.remove();
         clearInterval(bikeIntervals[i]);
     });
-    bikeIntervals = [];
-    geoJSONLayers = [];
 }
 
 // Calculates the distance between two points (given the
@@ -264,11 +220,14 @@ function coordDistance(lat1, lon1, lat2, lon2, unit) {
 	return dist;
 }
 
-function startBikeAnimation(route) {
+function startBikeAnimation(route, start, end) {
     // Create Route Array
+    // Segment each route straight line by time it takes to complete
+    // Represents a single animation frame
     let coords = [];
     let totalTime = 0;
-    let avgSpeed = route.meters/(route.cumulativeTripTime/route.tripCount);
+    let timeFactor = 3;
+    let avgSpeed = route.avgSpeed;
     for (let i = 0; i < route.geoJSON.coordinates.length - 1; i++) {
         let lat1 = route.geoJSON.coordinates[i][1];
         let long1 = route.geoJSON.coordinates[i][0];
@@ -276,7 +235,7 @@ function startBikeAnimation(route) {
         let long2 = route.geoJSON.coordinates[i+1][0];
         let d = coordDistance(lat1, long1, lat2, long2, 'K') * 1000;
         let time = (route.cumulativeTripTime/route.tripCount) * d/route.meters;
-        time = Math.floor(time);
+        time = Math.floor(time/timeFactor);
         let latInc = (lat2 - lat1)/time;
         let longInc = (long2 - long1)/time;
         for (let j = 0; j < time; j++) {
@@ -284,16 +243,26 @@ function startBikeAnimation(route) {
         }
     }
 
-    let second = 0;
-    let bikeNum = -1;
+    let second = 0; // Current second being animated
+    let bikeNum = [-1]; // Index of bike circle in bikeMarkers array
+
     let interval = setInterval(function() {
-            if (second == 0 && bikeNum == -1) {
+            if (second == 0 && bikeNum[0] == -1) {
+                // Assign color
+                let color = '#a9206a';
+                if (avgSpeed == maxSpeed) {
+                    color = '#ea204e';
+                } else if (avgSpeed == minSpeed) {
+                    color = '#fdf5a6';
+                }
+
                 let bike = L.circle([coords[second][0], coords[second][1]], {
-                        color: '#741b56',
+                        color: color,
                         fillColor: '#741b56',
                         fillOpacity: 1,
                         radius: 8
-                    }).bindPopup("<b>Speed:</b> " + Math.round(avgSpeed * 100) + " m/s", {'autoClose': false})
+                    })
+                    .bindPopup("<b>Start:</b> " + start + "<br><b>End:</b> " + end + "<br><b>Average Speed:</b> " + Math.round(route.avgSpeed * 100) / 100 + " m/s")
                     .on('mouseover', function (e) {
                         this.openPopup();
                     })
@@ -303,10 +272,10 @@ function startBikeAnimation(route) {
                     .addTo(viz5);
 
                 // Add bike marker
-                bikeNum = bikeMarkers.push(bike) - 1;
+                bikeNum[0] = bikeMarkers.push(bike) - 1;
             } else {
-                bikeMarkers[bikeNum].setLatLng([coords[second][0], coords[second][1]]);
-                bikeMarkers[bikeNum].redraw();
+                bikeMarkers[bikeNum[0]].setLatLng([coords[second][0], coords[second][1]]);
+                bikeMarkers[bikeNum[0]].redraw();
             }
 
             if (second + 1 == coords.length) {
@@ -314,14 +283,7 @@ function startBikeAnimation(route) {
             } else {
                 second += 1;
             }
-        }, 10);
+        }, 100);
     bikeIntervals.push(interval);
-}
-
-function download(content, fileName, contentType) {
-    var a = document.createElement("a");
-    var file = new Blob([content], {type: contentType});
-    a.href = URL.createObjectURL(file);
-    a.download = fileName;
-    a.click();
+    return bikeNum;
 }

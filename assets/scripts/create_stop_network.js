@@ -1,6 +1,6 @@
 // Script 1
 
-d3.json('assets/data/2017_large.json', function(error, data) {
+d3.json('assets/data/2018.json', function(error, data) {
     var stations = {};
     for (var i = 0; i < data.length; i++) {
         if (!(data[i]["start station name"] in stations)) {
@@ -24,6 +24,9 @@ d3.json('assets/data/2017_large.json', function(error, data) {
         station_network[station_A] = {};
         for (var station_B in stations) {
             let b = stations[station_B];
+            if (station_A == '8D QC Station 01' || station_B == '8D QC Station 01') {
+                console.log(stations[station_A], stations[station_B]);
+            }
             if (a.name != b.name) {
                 station_network[station_A][station_B] = {
                     meters: distance(a.lat, a.long, b.lat, b.long, 'K') * 1000,
@@ -37,7 +40,7 @@ d3.json('assets/data/2017_large.json', function(error, data) {
         }
     }
 
-    download(JSON.stringify(station_network), 'hubway_station_network.json', 'application/json');
+    download(JSON.stringify(stations), 'hubway_station_network.json', 'application/json');
 });
 
 // This routine calculates the distance between two points (given the
