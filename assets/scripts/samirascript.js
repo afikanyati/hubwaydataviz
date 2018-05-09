@@ -16,21 +16,41 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 //CREATES THE HUBWAY ICON (SAVED WITHIN ASETS FOLDER)
 //APPARENTLY LOGO NEEDS SHADOWS
-var hubwayIcon = L.icon({
-    iconUrl: 'assets/images/hubway-logo.png',
-    shadowUrl: 'assets/images/hubway-logo-shadow.png',
-//DEFINING SIZE OF LOGO
-    iconSize:     [38, 38], // size of the icon
-    shadowSize:   [38, 38], // size of the shadow
-    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
-    shadowAnchor: [-10, -2],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
+//var hubwayIcon = L.icon({
+//    iconUrl: 'assets/images/hubway-logo.png',
+//    shadowUrl: 'assets/images/hubway-logo-shadow.png',
+////DEFINING SIZE OF LOGO
+//    iconSize:     [38, 38], // size of the icon
+//    shadowSize:   [38, 38], // size of the shadow
+//    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+//    shadowAnchor: [-10, -2],  // the same for the shadow
+//    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+//});
+//L.marker([42.3581, -71.093198], {icon: hubwayIcon}).addTo(mymap);
+
+// CREATES RED MARKER
+var circle = L.circle([42.3581, -71.093198], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 1,
+    radius: 200,
+}).addTo(mymap);
+circle.bindPopup("Inbound:"+ 35+ '\n'+ "Outbound:" + 46);
+
 //USING D3: STATIONS.JSON WITH EVERY STATION AND ALL OF ITS INFO BUT NOW USE ONLY 2017 DATA SO NOT STATION.JSON 
 d3.json("assets/data/2017.json", function(error, data) {
-    for (var stationName in data) {
-        var station = data[stationName];
-        L.marker([station.lat, station.long], {icon: hubwayIcon}).addTo(mymap);
+for (var i = 0; i < data.length ; i++) {
+    var trip = data[i];
+    var ctr = {};
+    var startstation = trip['start station name'];
+    var endstation= trip['end station name'];
+    if (startstation not in ctr){
+        ctr[startstation] = 1}
+    else if (endstation not in ctr){
+        ctr[endstation] = 1}
+    else{
+        ctr[startstation] += 1
+    }
     }
 });
 
