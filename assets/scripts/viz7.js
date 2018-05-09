@@ -75,15 +75,15 @@ function buildVizSeven (data) {
         .text("Bikes");
 
     let legend = svg.selectAll(".legend")
-        .data(color.domain())
+        .data(color.domain().reverse())
         .enter().append("g")
         .attr("class", "legend")
         .attr("transform", function(d, i) { return "translate(0," + (-margin.top/2 + i * 20 + 20) + ")"; });
 
-    legend.append("rect")
-        .attr("x", width - 45)
-        .attr("width", 18)
-        .attr("height", 18)
+    legend.append("circle")
+        .attr("r", function(d, i, arr) {return (arr.length - i)*3})
+        .attr("cx", width - 35)
+        .attr("cy", 8)
         .style("fill", color);
 
     legend.append("text")
