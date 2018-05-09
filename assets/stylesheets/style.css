@@ -149,7 +149,6 @@ header {
 }
 
 .instruction-block {
-    max-width: 60ch;
     font-size: 1em;
     font-weight: 300;
     color: rgba(0, 0, 0, 0.87);
@@ -244,17 +243,27 @@ header {
 }
 
 .label text {
-    fill: var(--white);
+    fill: var(--black);
     font-weight: 700;
 }
 
 .legend text {
-    fill: var(--light-gray);
+    font-size: 13px;
+    fill: var(--gray);
 }
 
 .legend rect {
     stroke: var(--light-gray);
     stroke-width: 1px;
+}
+
+.axis-label, .legend-label {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.legend-label {
+    text-decoration: underline;
 }
 
 
@@ -277,6 +286,43 @@ header {
   60% {
     transform: translateY(-15px);
   }
+}
+
+figure {
+	position: relative;
+	width: 100%;
+    margin: 0;
+}
+
+.canvas {
+ 	font-size: 14px;
+ 	fill: #474747;
+ 	font-weight: normal;
+}
+
+.wedge {
+	stroke: var(--dark-gray);
+	stroke-width: 1px;
+}
+
+.label {
+	font-size: 8px;
+}
+
+.slider {
+	width: 400px;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	top: -100px;
+}
+
+.input-label {
+    display: block;
+    position: relative;
+	margin: 0 auto;
+	top: -90px;
+    text-align: center;
 }
 
 /*========================================== */
