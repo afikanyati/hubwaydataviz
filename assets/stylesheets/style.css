@@ -252,7 +252,7 @@ header {
     fill: var(--gray);
 }
 
-.legend rect {
+.legend circle {
     stroke: var(--light-gray);
     stroke-width: 1px;
 }
