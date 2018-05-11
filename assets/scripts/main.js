@@ -15,7 +15,7 @@ function loadVisualizations(error, counterData, stationData, networkData, distin
     buildVizOne(stationData);
     buildVizTwo(stationData, counterData);
     buildVizThree();
-    buildVizFour();
+    buildVizFour(yearData);
     buildVizFive(stationData, networkData, distinctTripsData);
     buildVizSix(viz6Data);
     buildVizSeven(viz7Data);
