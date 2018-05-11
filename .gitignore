@@ -8,3 +8,7 @@ assets/data/2015.json
 assets/data/2016 (no December).json
 assets/data/2017.json
 assets/data/2018.json
+assets/scripts/create_data.js
+assets/scripts/create_stop_network.js
+assets/scripts/create_viz5_data.js
+assets/scripts/create_viz4_data.js

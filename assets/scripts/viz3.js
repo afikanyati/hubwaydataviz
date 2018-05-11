@@ -1,76 +1,64 @@
 // ====== Data Visualization III ======
 //
 // How do popular stations relate to popular trips?
-function buildVizThree(data1,data2){
-    /*
-     function parseStations(d) {
-     return {
-     name : +d.name,
-     id: d.id,
-     type: +d.type
-     };
-     }
-     */
-    draw(data1,data2)
-    function draw(nodes_data, links_data) {
-        var width = d3.select('#viz3').node().clientWidth,
+function buildVizThree(nodes,links){
+    draw(nodes,links);
+
+    function draw(nodesData, linksData) {
+        let width = d3.select('#viz3').node().clientWidth,
         height = d3.select('#viz3').node().clientHeight;
 
-        
-
         // transform ids into numbers
-        links_data.forEach(function (d) {
+        linksData.forEach(function (d) {
             d.source = +d.source;
             d.target = +d.target;
         });
 
         // transform ids into numbers
-        nodes_data.forEach(function (d) {
-            d.name = +d.name
+        nodesData.forEach(function (d) {
+            d.name = +d.name;
         });
 
-        console.log(nodes_data)
         // filter links to have only those that appear in the list of stations
-        var links_data_sorted = links_data.sort(function (a,b) {return a.type - b.type}).reverse()
-        var links = links_data_sorted.filter(function(d,i){return i < 300});
-        //var links = links_data
+        let linksData_sorted = linksData.sort(function (a,b) {return a.type - b.type}).reverse();
+        let links = linksData_sorted.filter(function(d,i){return i < 300});
 
-
-        //create somewhere to put the force directed graph
-        var div = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
+        //create somewhere to put the force directed
         let svg = d3.select('#viz3').append("svg")
             .attr("width", width)
             .attr("height", height);
 
-        var radius = 15;
-        
+        // add tooltip element
+        let div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
 
-        
-        //set up forces
-        var link_force = d3.forceLink().id(function (d) {return d.name}).strength(0.5);
+        let radius = 15;
 
-        var charge_force = d3.forceManyBody().strength(-100);
+        // set up forces
+        let link_force = d3.forceLink().id(function (d) {return d.name}).strength(0.5);
 
-        var center_force = d3.forceCenter(width / 2, height / 2);
+        let charge_force = d3.forceManyBody().strength(-100);
+
+        let center_force = d3.forceCenter(width / 2, height / 2);
 
         // set up the simulation
-        var simulation = d3.forceSimulation()
+        let simulation = d3.forceSimulation()
             .force("charge", charge_force)
             .force("center", center_force)
             .force("link", link_force);
 
         //add encompassing group for the zoom
-        var g = svg.append("g")
+        let g = svg.append("g")
             .attr("class", "everything");
 
-        var min_max_nodes = d3.extent(nodes_data, function(d){return d.type;})
-        var min_max_links = d3.extent(links_data, function(d){return d.type;})
-        var radius_scaled = d3.scaleLinear().range([3,60]).domain(min_max_nodes)
-        var links_scaled = d3.scaleLinear().range([3,50]).domain(min_max_links)
+        let min_max_nodes = d3.extent(nodesData, function(d){return d.type;})
+        let min_max_links = d3.extent(linksData, function(d){return d.type;})
+        let radius_scaled = d3.scaleLinear().range([3,60]).domain(min_max_nodes)
+        let links_scaled = d3.scaleLinear().range([3,50]).domain(min_max_links)
+
         //draw lines for the links
-        var link = g.append("g")
+        let link = g.append("g")
             .attr("class", "links")
             .selectAll("line")
             .data(links)
@@ -78,14 +66,14 @@ function buildVizThree(data1,data2){
             .append("line")
             .attr("stroke-width", function (d) {return links_scaled(d.type)})
             .style("stroke", linkColour);
-        
-        
-//draw circles for the nodes
-        var node = g.append("g")
+
+
+        //draw circles for the nodes
+        let node = g.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
-            // before this was nodes_data
-            .data(nodes_data)
+            // before this was nodesData
+            .data(nodesData)
             .enter()
             .append("circle")
             .attr("r", function (d) {
@@ -105,13 +93,13 @@ function buildVizThree(data1,data2){
             .duration(500)
             .style("opacity", 0);
             })
-//    simulation
-        simulation.nodes(nodes_data).on("tick", tickActions);
+
+        //    simulation
+        simulation.nodes(nodesData).on("tick", tickActions);
         simulation.force("link").links(links);
 
-//add drag capabilities
-
-        var drag_handler = d3.drag()
+        //add drag capabilities
+        let drag_handler = d3.drag()
             .on("start", drag_start)
             .on("drag", drag_drag)
             .on("end", drag_end);
@@ -119,38 +107,37 @@ function buildVizThree(data1,data2){
         drag_handler(node);
 
 
-//add zoom capabilities
+        //add zoom capabilities
         /*
-        var zoom_handler = d3.zoom()
+        let zoom_handler = d3.zoom()
             .on("zoom", zoom_actions);
 
         zoom_handler(svg);
-*/
+        */
         /** Functions **/
 
-//Function to choose what color circle we have
-//Let's return blue for males and red for females
+        //Function to choose what color circle we have
+        //Let's return blue for males and red for females
         function circleColour(d) {
             return "#cc5da3";
         }
 
-//Function to choose the line colour and thickness 
-//If the link type is "A" return green 
-//If the link type is "E" return red 
+        //Function to choose the line colour and thickness
+        //If the link type is "A" return green
+        //If the link type is "E" return red
         function linkColour(d) {
             return "#084c4c";
         }
 
-//Drag functions 
-//d is the node 
-
+        //Drag functions
+        //d is the node
         function drag_start(d) {
             if (!d3.event.active) simulation.alphaTarget(0.3).restart();
             d.fx = d.x;
             d.fy = d.y;
         }
 
-//make sure you can't drag the circle outside the box
+        //make sure you can't drag the circle outside the box
         function drag_drag(d) {
             d.fx = d3.event.x;
             d.fy = d3.event.y;
@@ -161,13 +148,13 @@ function buildVizThree(data1,data2){
             d.fx = null;
             d.fy = null;
         }
-        
-//Zoom functions
-        /*
-        function zoom_actions() {
-            g.attr("transform", d3.event.transform)
-        }
-*/
+
+        //Zoom functions
+                /*
+                function zoom_actions() {
+                    g.attr("transform", d3.event.transform)
+                }
+        */
         function tickActions() {
             //update circle positions each tick of the simulation
             /*
@@ -184,9 +171,7 @@ function buildVizThree(data1,data2){
             .attr("cy", function(d) { return d.y = Math.max(radius, Math.min(height - radius, d.y)); });
 
             //update link positions
-            link
-                .attr("x1", function (d, i) {
-//        if (i===0){console.log(d)}
+            link.attr("x1", function (d, i) {
                     return d.source.x
                 })
                 .attr("y1", function (d) {
@@ -199,6 +184,5 @@ function buildVizThree(data1,data2){
                     return d.target.y
                 });
         }
-            }
 }
-
+}

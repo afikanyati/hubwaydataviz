@@ -4,9 +4,10 @@
 
 function buildVizSix(data) {
     let rose = Chart.rose(),
-    height = 600,
-    numbers = ['Trips'],
-	format = d3.timeFormat('%m/%Y');
+        width = d3.select('#viz6').node().clientWidth,
+        height = d3.select('#viz6').node().clientHeight,
+        numbers = ['Trips'],
+	    format = d3.timeFormat('%m/%Y');
 
     // Get the maximum value:
 	let maxVal = d3.max(data, function(d) {
@@ -17,11 +18,7 @@ function buildVizSix(data) {
 	let maxRadius = Math.sqrt(maxVal * 12 / Math.PI);
 
     // Append a new figure to the DOM:
-	figure = d3.select('#viz6')
-		.append( 'figure' );
-
-	// Get the figure width:
-	width = parseInt(figure.style( 'width' ), 10 );
+	figure = d3.select('#viz6').append( 'figure' );
 
 	// Update the chart generator settings:
 	rose.legend(numbers)
@@ -48,9 +45,7 @@ var Chart = {};
 Chart.rose = function() {
 
 	var margin = {'top': 20, 'right': 20, 'bottom': 20, 'left': 20},
-        width7 = d3.select('#viz6').node().clientWidth - margin.left - margin.right,
-        height7 = d3.select('#viz6').node().clientHeight - margin.top - margin.bottom,
-		area = function(d) { return [d.y]; },
+        area = function(d) { return [d.y]; },
 		angle = function(d) { return d.x; },
 		radiusScale = d3.scaleLinear(),
 		angleScale = d3.scaleLinear().range( [Math.PI, 3*Math.PI ] ),
