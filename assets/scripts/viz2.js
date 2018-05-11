@@ -20,6 +20,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(viz2);
 
 function buildVizTwo (stationData, counterData) {
+    // TO GET RED CIRCLES
+    let ctr = counterData;
+    let keysSorted = Object.keys(ctr).sort(function(a,b){return ctr[a]-ctr[b]}).reverse();
 
     // TO GET GREEN CIRCLES
     for (var stationName in stationData) {
@@ -29,13 +32,14 @@ function buildVizTwo (stationData, counterData) {
             fillColor: '#289699',
             fillOpacity: 1,
             radius: 30
-        }).addTo(viz2);
+        })
+        .bindPopup("<b>Hubway Stop:</b> " + stationName + "<br><b>Trips: </b>" + ctr[stationName] + "<b>", {'autoClose': false})
+        .on('mouseover', function (e) {
+            this.openPopup(); })
+        .on('mouseout', function (e) {
+            this.closePopup(); })
+        .addTo(viz2);
     }
-
-
-    // TO GET RED CIRCLES
-    let ctr = counterData;
-    let keysSorted = Object.keys(ctr).sort(function(a,b){return ctr[a]-ctr[b]}).reverse();
 
     //normalize radius size to be between 10 and 50
     let extent   = d3.extent(Object.values(ctr));
@@ -78,22 +82,29 @@ function buildVizTwo (stationData, counterData) {
 
     d3.select('#viz2-input-container').append('input')
         .attr('id', 'viz2-input')
+        .attr('class', 'slider')
 		.attr('type', 'range')
 		.attr('name', 'slider')
 		.attr('min', 0)
-		.attr('max', stationData.length)
+		.attr('max', Object.keys(stationData).length)
 		.attr('step', 1)
 		.attr('value', 10);
+    d3.select('#viz2-input-container').append('p')
+        .attr('id', 'viz2-input-value')
+        .text(10)
 
     d3.select('#viz2-input').on("change", function() {
         let value = Math.round(this.value);
+        // Change text change
+        d3.select('#viz2-input-value')
+            .text(value);
+
         if (value == circleRefs.length) {
             // do nothing
             return;
         } else if (value > circleRefs.length) {
             //  add circles
             addCircles(circleRefs.length, value);
-
         } else {
             // remove circles
             removeCircles(value);

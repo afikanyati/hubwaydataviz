@@ -317,12 +317,28 @@ figure {
 	top: -100px;
 }
 
-.input-label {
+.input-label, .viz2-input-label {
     display: block;
     position: relative;
 	margin: 0 auto;
 	top: -90px;
     text-align: center;
+}
+
+.viz2-input-label {
+    top: auto;
+    font-weight: 500;
+}
+
+#viz2-input {
+    display: inline-block;
+    margin-top: 15px;
+    top: auto;
+}
+
+#viz2-input-value {
+    margin-left: 10px;
+    display: inline-block;
 }
 
 /*========================================== */

@@ -1,6 +1,6 @@
 // Script 1
 
-d3.json('assets/data/2018.json', function(error, data) {
+d3.json('assets/data/2017.json', function(error, data) {
     var stations = {};
     for (var i = 0; i < data.length; i++) {
         if (!(data[i]["start station name"] in stations)) {
