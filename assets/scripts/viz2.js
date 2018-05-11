@@ -6,8 +6,8 @@
 
 //LEAFLET== L (LOOK AT LINK AFIKA SENT); USE RADIUS TO ATTRIBUTE POPULARITY TO CIRCLE SIZE
 
-var viz2 = L.map('viz2').setView([42.3581, -71.093198], 12.8);
-var circleRefs = [];
+let viz2 = L.map('viz2').setView([42.3581, -71.093198], 12.8);
+let circleRefs = [];
 
 //THIS WHOLE BLOCK: MAPBOX WEBSITE CREATES THEMES FOR MAPS
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -20,85 +20,84 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(viz2);
 
 function buildVizTwo (stationData, counterData) {
-    // TO GET RED CIRCLES
-    var ctr = counterData;
-    var keysSorted = Object.keys(ctr).sort(function(a,b){return ctr[a]-ctr[b]}).reverse();
-    
-    //normalize radius size to be between 10 and 50
-    var maxstat   = d3.max(Object.values(ctr));
-    var minstat   = d3.min(Object.values(ctr));
-    var scale = d3.scaleLinear().domain([minstat, maxstat]).range([10, 150]);
-    var radius=  _.map(radius, function(x) {return scale(x)})
-    
-    function addCircles (start, end){
-        for (var i = start; i < end; i++) {
-        name= keysSorted[i]
-        var station = stationData[name];
-        
-       var circleRef = L.circle([station.lat, station.long], 
-        {color: '#a9206a',
-        fillColor: '#a9206a',
-        fillOpacity: 0.5,
-        radius: scale(ctr[name]), 
-        })
-    .addTo(viz2)};
-    
-    circleRefs.push(circleRef);
-    }
-    // to cap off highest number you wanna see
-    function removeCircles(cap){
-        
-        // we will remove everything after cap to keep 1st up until cap
-        var removeCircles = circleRefs.slice(cap)
-        
-        for (var circ in removeCircles){
-            circ.remove()
-        }
-    }
-    
-    addCircles(0,10)
-    
+
     // TO GET GREEN CIRCLES
     for (var stationName in stationData) {
         var station = stationData[stationName];
-        L.circle([station.lat, station.long], 
+        L.circle([station.lat, station.long],
             {color: '#289699',
             fillColor: '#289699',
             fillOpacity: 1,
-            radius: 30}
-                ).bindPopup("<b>" + stationName + "</b>", {'autoClose': false})
-        .on('mouseover', function (e) {
-            this.openPopup(); })
-        .on('mouseout', function (e) {
-            this.closePopup(); })
-        .addTo(viz2);
+            radius: 30
+        }).addTo(viz2);
     }
-    
+
+
+    // TO GET RED CIRCLES
+    let ctr = counterData;
+    let keysSorted = Object.keys(ctr).sort(function(a,b){return ctr[a]-ctr[b]}).reverse();
+
+    //normalize radius size to be between 10 and 50
+    let extent   = d3.extent(Object.values(ctr));
+    let scale = d3.scaleLinear().domain(extent).range([35, 180]);
+
+    function addCircles(start, end) {
+        let circleRef;
+        for (let i = start; i < end; i++) {
+            let name= keysSorted[i];
+            let station = stationData[name];
+            circleRef = L.circle([station.lat, station.long],
+                {
+                    color: '#a9206a',
+                    fillColor: '#a9206a',
+                    fillOpacity: 0.5,
+                    radius: scale(ctr[name])
+                })
+                .bindPopup("<b>Hubway Stop:</b> " + name + "<br><b>Trips: </b>" + ctr[name] + "<b>", {'autoClose': false})
+                .on('mouseover', function (e) {
+                    this.openPopup(); })
+                .on('mouseout', function (e) {
+                    this.closePopup(); })
+                .addTo(viz2);
+            circleRefs.push(circleRef);
+        };
+    }
+
+    // to cap off highest number you wanna see
+    function removeCircles(cap) {
+        // we will remove everything after cap to keep 1st up until cap
+        var removeCircles = circleRefs.slice(cap);
+        circleRefs = circleRefs.slice(0, cap);
+
+        for (let i = 0; i < removeCircles.length; i++) {
+            removeCircles[i].remove();
+        }
+    }
+
+    addCircles(0,10);
+
     d3.select('#viz2-input-container').append('input')
         .attr('id', 'viz2-input')
 		.attr('type', 'range')
 		.attr('name', 'slider')
-		.attr('min', minstat)
-		.attr('max', maxstat)
+		.attr('min', 0)
+		.attr('max', stationData.length)
 		.attr('step', 1)
 		.attr('value', 10);
-    
+
     d3.select('#viz2-input').on("change", function() {
-        console.log(3);
-	   var value = Math.round(this.value);
+        let value = Math.round(this.value);
         if (value == circleRefs.length) {
+            // do nothing
             return;
-        }
-        else if (value > circleRefs.length) {
+        } else if (value > circleRefs.length) {
             //  add circles
-            addCircles(circleRefs.length, value)
-            
+            addCircles(circleRefs.length, value);
+
         } else {
             // remove circles
-            removeCircles(value)
+            removeCircles(value);
         }
 	});
 
 }
-
-

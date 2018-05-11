@@ -319,6 +319,7 @@ Chart.slider = function(data, minVal, maxVal, step) {
 
 	d3.select('#viz6').append('input')
 		.attr('class', 'slider')
+        .attr('id', 'viz6-input')
 		.attr('type', 'range')
 		.attr('name', 'slider')
 		.attr('min', minVal)
@@ -326,7 +327,7 @@ Chart.slider = function(data, minVal, maxVal, step) {
 		.attr('step', 0.001)
 		.attr('value', maxVal);
 
-	d3.select("input").on("change", function() {
+	d3.select("#viz6-input").on("change", function() {
 	  var value = Math.round(this.value);
 
 	  d3.selectAll('.wedgeGroup')
