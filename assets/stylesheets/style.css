@@ -317,12 +317,28 @@ figure {
 	top: -100px;
 }
 
-.input-label {
+.input-label, .viz2-input-label {
     display: block;
     position: relative;
 	margin: 0 auto;
 	top: -90px;
     text-align: center;
+}
+
+.viz2-input-label {
+    top: auto;
+    font-weight: 500;
+}
+
+#viz2-input {
+    display: inline-block;
+    margin-top: 15px;
+    top: auto;
+}
+
+#viz2-input-value {
+    margin-left: 10px;
+    display: inline-block;
 }
 
 /*========================================== */
@@ -445,3 +461,25 @@ font-family: "Nexa Italic";
 src: url(../fonts/nexa/Nexa-Thin-Italic.ttf);
 font-weight: 100;
 }
+
+ .links line {
+        stroke: #999;
+        stroke-opacity: 0.6;
+    }
+
+    .nodes circle {
+        stroke: #741b56;
+        stroke-width: 2px;
+    }
+   div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 90px;
+  padding: 10px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
