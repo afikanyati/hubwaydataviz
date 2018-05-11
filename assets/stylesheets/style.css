@@ -292,14 +292,12 @@ figure {
 	display: block;
 	position: relative;
 	margin: 0 auto;
-	top: -100px;
 }
 
 .input-label, .viz2-input-label {
     display: block;
     position: relative;
 	margin: 0 auto;
-	top: -90px;
     text-align: center;
 }
 
