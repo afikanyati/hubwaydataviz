@@ -54,13 +54,22 @@
                 <h4 class="viz2-input-label">Filter by Station</h4>
                 <p class="viz-explanation">
                     The popularity of a given Hubway station is determined by
-                    calculating the number of <span class="italic">incoming trips to</span>
+                    summing the number of <span class="italic">incoming trips to</span>
                     and <span class="italic">outgoing trips from</span> it.
                 </p>
                 <div class="instruction-block">
                     <h3 class="instruction-heading bold">Instructions:</h3>
                     <ol>
                         <li>
+                            Sum the number of incoming and outgoing stop at each station
+                        </li>
+                        <li>
+                            Scale this number linearly using the stations with the max and min popularity to set bounds
+                        </li>
+                        <li>
+                            This scale will be used to determine the relative sizes of our top X stations
+                            <n>
+                            X being determined by the slider on the visualization </n>
                         </li>
                     </ol>
                 </div>
